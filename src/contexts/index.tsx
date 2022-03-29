@@ -1,5 +1,6 @@
 import { AuthProvider, useAuth } from "./auth.context";
 import { ThemeProvider, useTheme } from "./theme.context";
+import { BrowsingProvider, useBrowse } from "./browsing.context";
 
 interface Props {
   children: React.ReactNode;
@@ -8,9 +9,11 @@ interface Props {
 const Provider = ({ children }: Props) => {
   return (
     <AuthProvider>
-      <ThemeProvider>{children}</ThemeProvider>
+      <BrowsingProvider>
+        <ThemeProvider>{children}</ThemeProvider>
+      </BrowsingProvider>
     </AuthProvider>
   );
 };
 
-export { Provider, useTheme, useAuth };
+export { Provider, useTheme, useAuth, useBrowse };

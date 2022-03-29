@@ -10,11 +10,13 @@ export const videos = [
     description:
       "You will learn the fundamentals about HTML, a markup lanauge and the skeleton of WWW .",
     creator: "Arun G",
+    time: "10:00",
   },
   {
     _id: "F_Riqjdh2oM",
     title: "Introduction to CSS & CSS3",
     creator: "Yashwanth",
+    time: "05:00",
     description:
       "CSS fundamentals to style any web page and the latest version of css",
   },

@@ -6,7 +6,7 @@ import Header from "../header";
 import {
   PlayIcon,
   QueueIcon,
-  StyleCard,
+  StyledCard,
   StyledMain,
   WatchLaterIcon,
   Wrapper,
@@ -40,24 +40,14 @@ export default function History() {
       <Typography variant="h2">History</Typography>
       <hr />
       <StyledMain>
-        {history.map((item) => (
-          <StyleCard key={item}>
-            <div className="card-media">
-              <img src="https://picsum.photos/200/250/" alt="video" />
-              <Badge className="duration">00:55</Badge>
-              <PlayIcon className="play" />
-              <WatchLaterIcon />
-              <QueueIcon />
-            </div>
-            <div className="card-body">
-              <Badge color="warning">HTML</Badge>
-              <Typography className="typography" variant="h3">
-                Title of the Video
-              </Typography>
-              <Typography className="typography">by: Yashwanth</Typography>
-            </div>
-          </StyleCard>
-        ))}
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus eius
+        eum nulla deleniti accusantium, facere, recusandae, doloribus quae
+        inventore doloremque explicabo! Dignissimos dolorem laboriosam assumenda
+        culpa distinctio corporis ipsum, delectus expedita ipsam minima, rem
+        alias hic dolor possimus, voluptatum provident modi asperiores
+        consequuntur inventore aperiam quidem quia. Eveniet voluptate, odit
+        accusamus quos tenetur, pariatur enim quidem voluptates dolores, quam
+        sequi.
       </StyledMain>
       <Footer />
     </Wrapper>

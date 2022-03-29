@@ -4,6 +4,7 @@ import SignUpPage from "./pages/singup";
 import HistoryPage from "./pages/history";
 import Home from "./pages/home";
 import { useAuth } from "./contexts";
+import Video from "./pages/video";
 
 const NoMatch = () => <h3>404 - No matching route found</h3>;
 
@@ -16,9 +17,10 @@ const publicRoutes = [
 
 const privateRoutes = [
   { path: "/videoList", element: <div>Video List</div> },
-  { path: "/video/:id", element: <div>Video List</div> },
+  { path: "/video/:id", element: <Video /> },
   { path: "/history", element: <HistoryPage /> },
   { path: "/watchLater", element: <div>Watch Later</div> },
+  { path: "/liked", element: <div>Liked Videos</div> },
 ];
 
 const AppRouter = () => {
