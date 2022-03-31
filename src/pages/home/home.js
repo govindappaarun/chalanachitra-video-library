@@ -1,18 +1,20 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Card } from "src/components";
+import { Box, Card } from "src/components";
 import Footer from "../footer";
 import Header from "../header/header";
 import { StyledMain } from "./home.styled";
 import Video from "../components/video";
 import { useBrowse } from "src/contexts";
 import { LinkButton } from "src/components/Button";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
+import videoService from "src/services/videoService";
+import historyService from "src/services/historyService";
 
 const SideNavBar = () => {
   const { browsingState } = useBrowse();
   return (
-    <div>
+    <Box display="flex" direction="column">
       <LinkButton color="primary" to="/liked">
         Liked ({browsingState.likes.length})
       </LinkButton>
@@ -22,7 +24,7 @@ const SideNavBar = () => {
       <LinkButton color="primary" to="/history">
         History
       </LinkButton>
-    </div>
+    </Box>
   );
 };
 
@@ -44,34 +46,42 @@ export default function Home() {
     browsingDispatch({ type: "REMOVE_FROM_WATCHLATER", payload: video });
   };
 
-  const onVideoClick = ({ _id }) => {
-    navigate(`video/:${_id}`);
+  const onVideoClick = (video) => {
+    historyService
+      .addToHistory(video)
+      .then(() => {
+        navigate(`video/${video._id}`);
+      })
+      .catch((err) => console.log({ err }));
   };
 
   useEffect(() => {
-    axios.get("/api/videos").then((response) => {
-      setVideos(response.data.videos);
-    });
+    videoService
+      .getAllVideos()
+      .then((response) => setVideos(response.videos))
+      .catch((err) => console.log({ err }));
   });
 
   return (
     <div>
       <Header />
-      <SideNavBar />
-      <StyledMain>
-        {videos.map((video) => {
-          return (
-            <Video
-              key={video._id}
-              video={video}
-              addWatchLater={addWatchLater}
-              removeWatchLater={removeWatchLater}
-              isInWatchList={isInWatchList}
-              onVideoClick={onVideoClick}
-            />
-          );
-        })}
-      </StyledMain>
+      <Box display="flex">
+        <SideNavBar />
+        <StyledMain>
+          {videos.map((video) => {
+            return (
+              <Video
+                key={video._id}
+                video={video}
+                addWatchLater={addWatchLater}
+                removeWatchLater={removeWatchLater}
+                isInWatchList={isInWatchList}
+                onVideoClick={onVideoClick}
+              />
+            );
+          })}
+        </StyledMain>
+      </Box>
       <Footer />
     </div>
   );

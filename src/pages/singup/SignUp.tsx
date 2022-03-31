@@ -4,6 +4,7 @@ import { Input, Button, Box, Typography } from "src/components";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "src/hooks/useForm";
 import { StyledForm, Wrapper } from "./SignUp.styled";
+import authService from "src/services/authService";
 
 export default function SingnUp() {
   const navigate = useNavigate();
@@ -15,16 +16,15 @@ export default function SingnUp() {
     lastName: "",
   };
 
-  const { onChange, onSubmit, values } = useForm(async () => {
-    try {
-      const result = await axios.post("/api/auth/signup", { ...values });
-      if (result.status === 201) {
-        console.log(result.data);
+  const { onChange, onSubmit, values } = useForm(() => {
+    authService
+      .doSignUp(values)
+      .then(() => {
         navigate("/login");
-      }
-    } catch (err) {
-      console.log({ err });
-    }
+      })
+      .catch((err) => {
+        console.log({ err });
+      });
   }, initialState);
 
   return (

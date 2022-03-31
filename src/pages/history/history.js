@@ -1,53 +1,61 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Badge, Typography } from "src/components";
+import { Box, Button, Typography } from "src/components";
+import historyService from "src/services/historyService";
 import Footer from "../footer";
 import Header from "../header";
-import {
-  PlayIcon,
-  QueueIcon,
-  StyledCard,
-  StyledMain,
-  WatchLaterIcon,
-  Wrapper,
-} from "./history.styled";
+import Video from "../components/video";
+import { StyledMain, Wrapper } from "./history.styled";
 
 export default function History() {
-  const [history, setHistory] = useState([1, 2, 3]);
+  const [history, setHistory] = useState([]);
 
   useEffect(() => {
     getHistory();
   }, []);
 
   const getHistory = () => {
-    axios
-      .get("/api/user/history", {
-        headers: {
-          authorization: localStorage.getItem(""),
-        },
-      })
+    historyService
+      .getHistory()
       .then((response) => {
-        console.log({ response });
+        setHistory(response.history);
       })
       .catch((e) => {
         console.log(e);
       });
   };
 
+  const clearHistory = () => {
+    historyService.clearHistory().then(() => {
+      setHistory([]);
+    });
+  };
+
+  const clearFromHistory = ({ _id }) => {
+    historyService.deleteFromHistory({ _id }).then(() => {
+      getHistory();
+    });
+  };
+
   return (
     <Wrapper>
       <Header />
-      <Typography variant="h2">History</Typography>
+      <Box display="flex" justifyContent="space-between" className="my-1">
+        <h2>History</h2>
+        <Button outline color="error" onClick={clearHistory}>
+          Clear History
+        </Button>
+      </Box>
       <hr />
       <StyledMain>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus eius
-        eum nulla deleniti accusantium, facere, recusandae, doloribus quae
-        inventore doloremque explicabo! Dignissimos dolorem laboriosam assumenda
-        culpa distinctio corporis ipsum, delectus expedita ipsam minima, rem
-        alias hic dolor possimus, voluptatum provident modi asperiores
-        consequuntur inventore aperiam quidem quia. Eveniet voluptate, odit
-        accusamus quos tenetur, pariatur enim quidem voluptates dolores, quam
-        sequi.
+        {history.map((video, index) => {
+          return (
+            <div key={index}>
+              <Video video={video} />;
+              <Button onClick={() => clearFromHistory(video)}>delete</Button>
+            </div>
+          );
+        })}
       </StyledMain>
       <Footer />
     </Wrapper>

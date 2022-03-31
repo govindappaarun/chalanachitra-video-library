@@ -17,7 +17,7 @@ const Video = (
         <Badge className="duration">{video.time}</Badge>
         <PlayIcon className="play" />
         <WatchLaterIcon
-          active={() => isInWatchList(video)}
+          // active={() => isInWatchList(video)}
           onClick={(e) => {
             e.stopPropagation();
             if (isInWatchList(video)) {

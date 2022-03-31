@@ -8,7 +8,6 @@ const BrowsingProvider = ({ children }) => {
     browsingReducer,
     initialState
   );
-  console.log({ browsingDispatch });
   return (
     <BrowsingContext.Provider value={{ browsingState, browsingDispatch }}>
       {children}

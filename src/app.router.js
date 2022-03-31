@@ -25,7 +25,6 @@ const privateRoutes = [
 
 const AppRouter = () => {
   const { authState } = useAuth();
-  console.log({ authState });
   const appRoutes = publicRoutes.concat(
     authState.isLoggedIn ? privateRoutes : []
   );

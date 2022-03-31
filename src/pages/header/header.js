@@ -41,16 +41,6 @@ export default function Header({ ...rest }) {
         <div className="nav-right flex-gap-2">
           {authState.isLoggedIn ? (
             <>
-              <Box
-                className="icon-container"
-                display="inline-block"
-                onClick={() => navigate("/wishlist")}
-              >
-                <Badge color="success" className="badge">
-                  0
-                </Badge>
-                Wish
-              </Box>
               <ThemeIcon
                 className={clsx("mx-1", { reverse: theme === "dark" })}
                 onClick={toggleTheme}

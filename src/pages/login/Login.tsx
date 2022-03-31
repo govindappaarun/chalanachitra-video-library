@@ -5,6 +5,7 @@ import { Input, Button, Box, Typography } from "src/components";
 import { useForm } from "src/hooks/useForm";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "src/contexts";
+import authService from "src/services/authService";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ export default function Login() {
 
   useEffect(() => {
     if (authState.isLoggedIn) {
-      navigate("/home"); // auto redirect to home if logged in
+      navigate("/"); // auto redirect to home if logged in
     }
   }, [authState.isLoggedIn]);
 
@@ -21,20 +22,18 @@ export default function Login() {
     password: "",
   };
 
-  const { onChange, onSubmit, values } = useForm(async () => {
-    try {
-      const result = await axios.post("/api/auth/login", { ...values });
-      if (result.status === 200) {
-        console.log(result.data);
-        // save to localstorage
-        localStorage.setItem("token", result.data.encodedToken);
-        localStorage.setItem("user", JSON.stringify(result.data.foundUser));
-        authDispatch({ type: "DO_LOGIN", payload: result.data.foundUser });
+  const { onChange, onSubmit, values } = useForm(() => {
+    authService
+      .doLogin(values)
+      .then((result) => {
+        localStorage.setItem("token", result.encodedToken);
+        localStorage.setItem("user", JSON.stringify(result.foundUser));
+        authDispatch({ type: "DO_LOGIN", payload: result.foundUser });
         navigate("/home");
-      }
-    } catch (err) {
-      console.log({ err });
-    }
+      })
+      .catch((err) => {
+        console.log({ err });
+      });
   }, initialState);
 
   return (

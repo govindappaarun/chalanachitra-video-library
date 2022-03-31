@@ -35,9 +35,10 @@ export const LinkButton = styled(Link)`
   border: 0;
   color: ${(p) => (p.color ? p.theme[p.color]["main"] : "white")};
   padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
   &:hover {
-    background-color: transparent;
-    text-decoration: underline;
+    background-color: aliceblue;
     box-shadow: none;
     transform: none;
   }
