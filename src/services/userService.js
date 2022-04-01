@@ -1,27 +1,27 @@
 import Api from "./api";
 
 export default {
-  getWatchLater: async () => {
+  getWatchlater: async () => {
     try {
-      const response = await Api.get("/api/user/watchLater");
+      const response = await Api.get("/api/user/watchlater");
       return response.data;
     } catch (error) {
       throw error;
     }
   },
 
-  postUserWatchLater: async (video) => {
+  postUserWatchlater: async (video) => {
     try {
-      const response = await Api.post("/api/user/watchLater", { video });
+      const response = await Api.post("/api/user/watchlater", { video });
       return response.data;
     } catch (error) {
       throw error;
     }
   },
 
-  deleteWatchLater: async ({ _id }) => {
+  deleteWatchlater: async ({ _id }) => {
     try {
-      const response = await Api.get(`/api/user/watchLater/${_id}`);
+      const response = await Api.get(`/api/user/watchlater/${_id}`);
       return response.data;
     } catch (error) {
       throw error;
@@ -63,9 +63,9 @@ export default {
     }
   },
 
-  createPlayList: async (video) => {
+  createPlayList: async (playlist) => {
     try {
-      const response = await Api.post("/api/user/playlists", { video });
+      const response = await Api.post("/api/user/playlists", { playlist });
       return response.data;
     } catch (error) {
       throw error;
@@ -81,7 +81,7 @@ export default {
     }
   },
 
-  getVideosInPlaylis: async ({ _id }) => {
+  getVideosInPlaylist: async ({ _id }) => {
     try {
       const response = await Api.get(`/api/user/playlists/${_id}`);
       return response.data;
