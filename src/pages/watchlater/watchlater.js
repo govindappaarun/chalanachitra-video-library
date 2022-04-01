@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Box } from "src/components";
 import userService from "src/services/userService";
 import Video from "../components/video";
 import { Wrapper } from "./watchlater.styled";
@@ -18,7 +19,9 @@ export default function WatchLater() {
 
   return (
     <Wrapper>
-      <h3>Watchlater list</h3>
+      <Box display="flex" justifyContent="space-between" className="my-1">
+        <h2>Watchlater</h2>
+      </Box>
       <hr />
       {videos && videos.length === 0 && <h4>No videos found</h4>}
       <section>

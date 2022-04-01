@@ -14,7 +14,7 @@ export default function Login() {
 
   useEffect(() => {
     if (authState.isLoggedIn) {
-      navigate("/"); // auto redirect to home if logged in
+      navigate("/home"); // auto redirect to home if logged in
     }
   }, [authState.isLoggedIn]);
 

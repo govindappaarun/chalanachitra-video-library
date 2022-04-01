@@ -3,13 +3,15 @@ import { Box } from "src/components";
 import Footer from "../footer";
 import Header from "../header/header";
 import SideNavBar from "./sidenav";
-import { StyledMain } from "./home.styled";
+import { StyledMain, Wrapper } from "./home.styled";
 import { Outlet } from "react-router-dom";
-import videoService from "src/services/videoService";
 import categoryService from "src/services/categoryService";
+import { useAuth } from "src/contexts";
 
 export default function Home() {
   const [categories, setCategories] = useState(null);
+  const { authState } = useAuth();
+
   const getAllCategories = () => {
     categoryService.getAllCategories().then((response) => {
       setCategories(response.categories);
@@ -22,15 +24,15 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <Wrapper>
       <Header />
       <Box display="flex">
-        <SideNavBar categories={categories} />
+        {authState.isLoggedIn && <SideNavBar categories={categories} />}
         <StyledMain>
           <Outlet />
         </StyledMain>
       </Box>
       <Footer />
-    </div>
+    </Wrapper>
   );
 }

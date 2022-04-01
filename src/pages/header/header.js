@@ -34,7 +34,7 @@ export default function Header({ ...rest }) {
             gap="xs"
             className="brand-container"
           >
-            <Typography variant="h2">Chalanachitra</Typography>
+            <h3>Chalanachitra</h3>
           </Box>
         </div>
 

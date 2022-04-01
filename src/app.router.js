@@ -14,7 +14,7 @@ import VideoList from "./pages/home/videoList";
 const NoMatch = () => <h3>404 - No matching route found</h3>;
 
 const publicRoutes = [
-  { path: "/", element: <Home /> },
+  { path: "/home", element: <Home /> },
   { path: "/signup", element: <SignUpPage /> },
   { path: "/login", element: <LoginPage /> },
   { path: "*", element: <NoMatch /> },
@@ -26,25 +26,25 @@ const privateRoutes = [
     element: <Home />,
     children: [
       { path: "/home", index: true, element: <VideoList /> },
-      { path: "/home/watchLater", element: <WatchLater /> },
-      { path: "/home/liked", element: <LikedVideos /> },
-    ],
-  },
-  { path: "/video/:id", element: <Video /> },
-  { path: "/history", element: <HistoryPage /> },
-  {
-    path: "/browseCategory/:categoryName",
-    element: <VideoCategories />,
-  },
-  {
-    path: "/playlists",
-    element: <Playlists />,
-    children: [
+      { path: "watchLater", element: <WatchLater /> },
+      { path: "liked", element: <LikedVideos /> },
+      { path: "history", element: <HistoryPage /> },
+      { path: "video/:id", element: <Video /> },
       {
-        path: "create",
-        element: <CreatePlaylist />,
+        path: "browseCategory/:categoryName",
+        element: <VideoCategories />,
       },
-      { path: ":videoId", element: <div>Videos</div> },
+      {
+        path: "playlists",
+        element: <Playlists />,
+        children: [
+          {
+            path: "create",
+            element: <CreatePlaylist />,
+          },
+          { path: ":videoId", element: <div>Videos</div> },
+        ],
+      },
     ],
   },
 ];

@@ -17,7 +17,6 @@ export default function Playlists() {
 
   const getPlaylists = () => {
     userService.getUserPlaylists().then((response) => {
-      console.log({ response });
       setPlaylists(response.playlists);
     });
   };
@@ -30,7 +29,7 @@ export default function Playlists() {
 
   const onPlaylistSelect = (list) => {
     setActivePlaylist(list);
-    navigate(`/playlists/${list.id}`);
+    navigate(`${list.id}`);
     userService
       .getVideosInPlaylist(list)
       .then((response) => setVideos(response.videos));
@@ -44,13 +43,9 @@ export default function Playlists() {
 
   return (
     <div>
-      <Box display="flex" justifyContent="space-between">
+      <Box display="flex" justifyContent="space-between" className="my-1">
         <h2>Playlists</h2>
-        <Button
-          color="primary"
-          outline
-          onClick={() => navigate("/playlists/create")}
-        >
+        <Button color="primary" outline onClick={() => navigate("create")}>
           Add Playlist
         </Button>
       </Box>
