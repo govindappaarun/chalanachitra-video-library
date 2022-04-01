@@ -34,7 +34,7 @@ const SideNavBar = ({ categories }) => {
             <LinkButton
               key={category._id}
               color="primary"
-              to={`/home/browseCategory/${category.categoryName}`}
+              to={`/browseCategory/${category.categoryName}`}
             >
               {category.categoryName}
             </LinkButton>

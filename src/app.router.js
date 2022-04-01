@@ -28,15 +28,14 @@ const privateRoutes = [
       { path: "/home", index: true, element: <VideoList /> },
       { path: "/home/watchLater", element: <WatchLater /> },
       { path: "/home/liked", element: <LikedVideos /> },
-      {
-        path: "home/browseCategory/:categoryName",
-        element: <VideoCategories />,
-      },
     ],
   },
   { path: "/video/:id", element: <Video /> },
   { path: "/history", element: <HistoryPage /> },
-
+  {
+    path: "/browseCategory/:categoryName",
+    element: <VideoCategories />,
+  },
   {
     path: "/playlists",
     element: <Playlists />,
