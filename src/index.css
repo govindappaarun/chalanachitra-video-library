@@ -1,0 +1,65 @@
+@import-normalize;
+
+/* margin padding height & width */
+.px-1 {
+  padding: 0 1.25rem;
+}
+
+.py-1 {
+  padding: 1rem 0;
+}
+
+.p-20 {
+  padding: 1.25rem;
+}
+
+.p-21 {
+  padding: 0.8rem 1.25rem;
+}
+
+.m-auto {
+  margin: 0 auto;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.m-1 {
+  margin: 1rem;
+}
+
+.mx-1 {
+  margin: 0 1rem;
+}
+
+.my-1 {
+  margin: 1rem 0;
+}
+
+.m-2 {
+  margin: 2rem;
+}
+.m-5 {
+  margin: 5rem;
+}
+
+.mx-2 {
+  margin: 0 2rem;
+}
+
+.my-2 {
+  margin: 2rem 0;
+}
+
+.my-5 {
+  margin: 5rem 0;
+}
+
+.h-100 {
+  height: 62.5rem;
+}
+
+.h-200 {
+  height: 125rem;
+}
