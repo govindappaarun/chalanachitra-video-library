@@ -14,6 +14,7 @@ export default {
   addToHistory: async (video) => {
     try {
       const response = await Api.post("/api/user/history", { video });
+      // console.log("added to history");
       return response.data;
     } catch (error) {
       throw error;

@@ -48,8 +48,13 @@ export default function History() {
         {history.map((video, index) => {
           return (
             <div key={index}>
-              <Video video={video} />;
-              <Button onClick={() => clearFromHistory(video)}>delete</Button>
+              <Video
+                horizontal
+                video={video}
+                onDelete={clearFromHistory}
+                showDelete
+                className="card-horizontal"
+              />
             </div>
           );
         })}

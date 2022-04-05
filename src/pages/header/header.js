@@ -1,11 +1,9 @@
 import React from "react";
 import { Button, NavBar } from "src/components";
-import { SearchInput, Wrapper, ThemeIcon, StyledNavBar } from "./header.styled";
+import { Wrapper, ThemeIcon, StyledNavBar } from "./header.styled";
 import Box from "src/components/Box";
 import { useNavigate, useLocation } from "react-router-dom";
-import Typography from "src/components/Typography/Typography";
 import { useAuth, useCart, useTheme } from "src/contexts";
-import Badge from "src/components/Badge";
 import clsx from "clsx";
 
 export default function Header({ ...rest }) {
@@ -29,7 +27,7 @@ export default function Header({ ...rest }) {
         <div className="nav-left flex-gap-2">
           <Box
             display="flex"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/home")}
             alignItems="center"
             gap="xs"
             className="brand-container"

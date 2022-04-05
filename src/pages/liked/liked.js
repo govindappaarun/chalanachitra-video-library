@@ -12,8 +12,8 @@ export default function LikedVideos() {
   }, []);
 
   const getWatchedVideos = () => {
-    userService.getWatchlater().then((response) => {
-      setVideos(response.watchlater);
+    userService.getUserLikes().then((response) => {
+      setVideos(response.likes);
     });
   };
 

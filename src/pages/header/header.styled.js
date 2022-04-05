@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { RiContrastFill } from "react-icons/ri";
 
 export const Wrapper = styled.div`
-  /* background-color: ${(p) => p.theme.neutral.main};
-  color: ${(p) => p.theme.primary.main}; */
   background-color: ${(p) => p.theme.primary.main};
   color: ${(p) => p.theme.primary.contrastText};
 `;
@@ -12,6 +10,9 @@ export const Wrapper = styled.div`
 export const StyledNavBar = styled(NavBar)`
   background-color: ${(p) => p.theme.neutral.dark};
   color: ${(p) => p.theme.white};
+  & .brand-container {
+    cursor: pointer;
+  }
 `;
 
 export const SearchInput = styled(Input)`

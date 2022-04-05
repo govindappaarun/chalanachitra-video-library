@@ -4,6 +4,7 @@ export default {
   getWatchlater: async () => {
     try {
       const response = await Api.get("/api/user/watchlater");
+      // console.log({ response });
       return response.data;
     } catch (error) {
       throw error;
@@ -31,6 +32,7 @@ export default {
   getUserLikes: async () => {
     try {
       const response = await Api.get("/api/user/likes");
+      // console.log({ response });
       return response.data;
     } catch (error) {
       throw error;
