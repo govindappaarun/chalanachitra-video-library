@@ -27,14 +27,14 @@ export default function VideoPage() {
   }, [id]);
 
   const videoLike = () => {
-    userService.postUserLike({ _id: id }).then(() => {
-      browsingDispatch({ type: "DO_LIKE", payload: { _id: id } });
+    userService.postUserLike(video).then(() => {
+      browsingDispatch({ type: "DO_LIKE", payload: video });
     });
   };
 
   const disLike = () => {
-    userService.deleteVideoLike({ _id: id }).then(() => {
-      browsingDispatch({ type: "REMOVE_LIKE", payload: { _id: id } });
+    userService.deleteVideoLike(video).then(() => {
+      browsingDispatch({ type: "REMOVE_LIKE", payload: video });
     });
   };
 
