@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { FC, ButtonHTMLAttributes } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { ColorTypes, SizeTypes } from "../types/types";
 import StyledButton from "./Button.styled";
@@ -30,13 +30,16 @@ const Button: FC<ButtonProps> = ({
   );
 };
 
-export const LinkButton = styled(Link)`
+export const LinkButton = styled(NavLink)`
   background-color: transparent;
   border: 0;
   color: ${(p) => (p.color ? p.theme[p.color]["main"] : "white")};
   padding: 0.5rem 1rem;
   text-decoration: none;
   border-radius: 5px;
+  &.active {
+    background-color: lightblue;
+  }
   &:hover {
     background-color: aliceblue;
     box-shadow: none;

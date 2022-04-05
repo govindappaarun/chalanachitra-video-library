@@ -60,9 +60,11 @@ export const StyledCard = styled(Card)`
     background-color: transparent;
     line-height: 1.5rem;
   }
+
   .card-body {
     padding: 0.5rem 1rem;
   }
+
   .card-media {
     position: relative;
     padding: 0.5rem 1rem;
@@ -83,6 +85,19 @@ export const StyledCard = styled(Card)`
   &:hover {
     .play {
       visibility: visible;
+    }
+  }
+
+  &.horizontal {
+    flex-direction: row;
+    min-width: 50vw;
+
+    .card-media {
+      flex-grow: 2;
+    }
+
+    .card-body {
+      flex-grow: 1;
     }
   }
 `;

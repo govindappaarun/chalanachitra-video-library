@@ -2,6 +2,7 @@ import { colors } from "./colors";
 
 const light = {
   primary: {
+    p800: colors.primary[800],
     dark: colors.primary[700],
     main: colors.primary[600],
     light: colors.primary[500],
@@ -70,6 +71,7 @@ const light = {
 
 const dark = {
   primary: {
+    p800: colors.primary[800],
     dark: colors.primary[700],
     main: colors.primary[600],
     light: colors.primary[500],

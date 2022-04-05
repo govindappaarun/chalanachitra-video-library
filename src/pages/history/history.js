@@ -1,9 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Box, Button, Typography } from "src/components";
+import { Box, Button } from "src/components";
 import historyService from "src/services/historyService";
-import Footer from "../footer";
-import Header from "../header";
 import Video from "../components/video";
 import { StyledMain, Wrapper } from "./history.styled";
 
@@ -39,7 +37,6 @@ export default function History() {
 
   return (
     <Wrapper>
-      <Header />
       <Box display="flex" justifyContent="space-between" className="my-1">
         <h2>History</h2>
         <Button outline color="error" onClick={clearHistory}>
@@ -51,13 +48,17 @@ export default function History() {
         {history.map((video, index) => {
           return (
             <div key={index}>
-              <Video video={video} />;
-              <Button onClick={() => clearFromHistory(video)}>delete</Button>
+              <Video
+                horizontal
+                video={video}
+                onDelete={clearFromHistory}
+                showDelete
+                className="card-horizontal"
+              />
             </div>
           );
         })}
       </StyledMain>
-      <Footer />
     </Wrapper>
   );
 }

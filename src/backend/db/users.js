@@ -24,5 +24,9 @@ export const users = [
     password: "arun",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    likes: [],
+    history: [],
+    playlists: [],
+    watchlater: [],
   },
 ];

@@ -1,88 +1,38 @@
-import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Box, Card } from "src/components";
+import { Box } from "src/components";
 import Footer from "../footer";
 import Header from "../header/header";
-import { StyledMain } from "./home.styled";
-import Video from "../components/video";
-import { useBrowse } from "src/contexts";
-import { LinkButton } from "src/components/Button";
-import { useNavigate } from "react-router";
-import videoService from "src/services/videoService";
-import historyService from "src/services/historyService";
-
-const SideNavBar = () => {
-  const { browsingState } = useBrowse();
-  return (
-    <Box display="flex" direction="column">
-      <LinkButton color="primary" to="/liked">
-        Liked ({browsingState.likes.length})
-      </LinkButton>
-      <LinkButton color="primary" to="/watchLater">
-        WatchLater ({browsingState.watchLater.length})
-      </LinkButton>
-      <LinkButton color="primary" to="/history">
-        History
-      </LinkButton>
-    </Box>
-  );
-};
+import SideNavBar from "./sidenav";
+import { StyledMain, Wrapper } from "./home.styled";
+import { Outlet } from "react-router-dom";
+import categoryService from "src/services/categoryService";
+import { useAuth } from "src/contexts";
 
 export default function Home() {
-  const [videos, setVideos] = useState([]);
-  const { browsingState, browsingDispatch } = useBrowse();
-  const navigate = useNavigate();
+  const [categories, setCategories] = useState(null);
+  const { authState } = useAuth();
 
-  const isInWatchList = ({ _id }) => {
-    return browsingState.watchLater.indexOf(_id) >= 0;
-  };
-
-  const addWatchLater = (video) => {
-    // api call
-    browsingDispatch({ type: "DO_WATCHLATER", payload: video });
-  };
-
-  const removeWatchLater = (video) => {
-    browsingDispatch({ type: "REMOVE_FROM_WATCHLATER", payload: video });
-  };
-
-  const onVideoClick = (video) => {
-    historyService
-      .addToHistory(video)
-      .then(() => {
-        navigate(`video/${video._id}`);
-      })
-      .catch((err) => console.log({ err }));
+  const getAllCategories = () => {
+    categoryService.getAllCategories().then((response) => {
+      setCategories(response.categories);
+      console.log({ response });
+    });
   };
 
   useEffect(() => {
-    videoService
-      .getAllVideos()
-      .then((response) => setVideos(response.videos))
-      .catch((err) => console.log({ err }));
-  });
+    getAllCategories();
+  }, []);
 
   return (
-    <div>
+    <Wrapper>
       <Header />
       <Box display="flex">
-        <SideNavBar />
+        {authState.isLoggedIn && <SideNavBar categories={categories} />}
         <StyledMain>
-          {videos.map((video) => {
-            return (
-              <Video
-                key={video._id}
-                video={video}
-                addWatchLater={addWatchLater}
-                removeWatchLater={removeWatchLater}
-                isInWatchList={isInWatchList}
-                onVideoClick={onVideoClick}
-              />
-            );
-          })}
+          <Outlet />
         </StyledMain>
       </Box>
       <Footer />
-    </div>
+    </Wrapper>
   );
 }

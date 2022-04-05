@@ -6,6 +6,7 @@ import { useForm } from "src/hooks/useForm";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "src/contexts";
 import authService from "src/services/authService";
+import { InputPassword } from "src/components/Input";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export default function Login() {
 
   useEffect(() => {
     if (authState.isLoggedIn) {
-      navigate("/"); // auto redirect to home if logged in
+      navigate("/home"); // auto redirect to home if logged in
     }
   }, [authState.isLoggedIn]);
 
@@ -54,15 +55,13 @@ export default function Login() {
         >
           <label>Email</label>
         </Input>
-        <Input
+        <InputPassword
           placeholder="Enter Password"
           className="my-2"
           name="password"
           onChange={onChange}
-        >
-          <label>Password</label>
-        </Input>
-
+          label="Password"
+        />
         <Box
           display="flex"
           alignItems="center"
