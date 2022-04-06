@@ -1,4 +1,4 @@
-import { useRoutes } from "react-router-dom";
+import { useRoutes, Navigate } from "react-router-dom";
 import LoginPage from "./pages/login";
 import SignUpPage from "./pages/singup";
 import HistoryPage from "./pages/history";
@@ -11,13 +11,12 @@ import WatchLater from "./pages/watchlater";
 import LikedVideos from "./pages/liked";
 import VideoList from "./pages/home/videoList";
 
-const NoMatch = () => <h3>404 - No matching route found</h3>;
-
 const publicRoutes = [
+  { path: "/", element: <Navigate to="/home" replace /> },
   { path: "/home", element: <Home /> },
   { path: "/signup", element: <SignUpPage /> },
   { path: "/login", element: <LoginPage /> },
-  { path: "*", element: <NoMatch /> },
+  { path: "*", element: <LoginPage /> },
 ];
 
 const privateRoutes = [
