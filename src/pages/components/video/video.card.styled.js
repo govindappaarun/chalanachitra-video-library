@@ -6,12 +6,21 @@ import {
   MdOutlineQueue,
   MdOutlineWatchLater,
   MdOutlineComment,
+  MdMoreVert,
 } from "react-icons/md";
 
 import { RiEyeLine } from "react-icons/ri";
 
 export const CommentIcon = styled(MdOutlineComment)``;
 export const EyelineIcon = styled(RiEyeLine)``;
+
+export const MoreIcon = styled(MdMoreVert)`
+  font-size: 1.5rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+`;
 
 export const QueueIcon = styled(MdOutlineQueue)`
   color: white;
@@ -63,6 +72,7 @@ export const StyledCard = styled(Card)`
 
   .card-body {
     padding: 0.5rem 1rem;
+    position: relative;
   }
 
   .card-media {

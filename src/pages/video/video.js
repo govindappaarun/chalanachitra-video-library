@@ -44,7 +44,7 @@ export default function VideoPage() {
         <StyledMain>
           <VideoCard>
             <div className="card-media">
-              <img src="https://picsum.photos/200/250/" alt="video" />
+              <img src="https://picsum.photos/300/400/" alt="video" />
             </div>
           </VideoCard>
           <Details display="flex" gap="sm">
