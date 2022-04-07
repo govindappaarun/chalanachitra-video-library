@@ -23,7 +23,7 @@ const SideNavBar = ({ categories }) => {
       <LinkButton className={isActiveLink} color="primary" to="history">
         History
       </LinkButton>
-      <LinkButton className={isActiveLink} color="primary" to="playlists">
+      <LinkButton className={isActiveLink} color="primary" to="playlists/list">
         Playlists
       </LinkButton>
       <h3>Categories</h3>

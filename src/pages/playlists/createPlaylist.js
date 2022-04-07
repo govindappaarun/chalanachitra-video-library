@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Input } from "src/components";
+import { Button, Input, Typography } from "src/components";
 import { useForm } from "src/hooks/useForm";
 import userService from "src/services/userService";
 import styled from "styled-components";
@@ -19,12 +19,12 @@ export default function CreatePlaylist() {
 
   const { values, onSubmit, onChange } = useForm(() => {
     userService.createPlayList(values).then((response) => {
-      console.log({ response });
-      navigate("/playlists");
+      navigate(`/home/playlists/list`);
     });
   }, initialState);
   return (
     <StyledForm onSubmit={onSubmit}>
+      <h2>Create Playlist</h2>
       <Input
         className="my-2"
         name="name"

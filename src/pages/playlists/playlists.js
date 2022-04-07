@@ -7,7 +7,6 @@ import { Playlist, Trash } from "./playlists.styled";
 
 export default function Playlists() {
   const [activePlaylist, setActivePlaylist] = useState(null);
-  const [videos, setVideos] = useState([]);
   const navigate = useNavigate();
   const [playlists, setPlaylists] = useState(null);
 
@@ -22,17 +21,14 @@ export default function Playlists() {
   };
 
   const deletePlaylist = (list) => {
-    userService.deletePlayList(list).then(() => {
-      getPlaylists();
+    userService.deletePlayList(list).then((response) => {
+      setPlaylists(response.playlists);
     });
   };
 
   const onPlaylistSelect = (list) => {
     setActivePlaylist(list);
-    navigate(`${list.id}`);
-    userService
-      .getVideosInPlaylist(list)
-      .then((response) => setVideos(response.videos));
+    navigate(`/home/playlists/${list._id}`);
   };
 
   const onCreatePlaylist = (list) => {
@@ -45,7 +41,11 @@ export default function Playlists() {
     <div>
       <Box display="flex" justifyContent="space-between" className="my-1">
         <h2>Playlists</h2>
-        <Button color="primary" outline onClick={() => navigate("create")}>
+        <Button
+          color="primary"
+          outline
+          onClick={() => navigate("/home/playlists/create")}
+        >
           Add Playlist
         </Button>
       </Box>
@@ -54,8 +54,14 @@ export default function Playlists() {
         {playlists && playlists.length === 0 && <h4>No playlists found</h4>}
         {playlists &&
           playlists.map((list, index) => (
-            <Playlist key={index} onClick={() => onPlaylistSelect(list)}>
-              {list.name}
+            <Playlist
+              display="flex"
+              gap="md"
+              alignItems="center"
+              key={index}
+              onClick={() => onPlaylistSelect(list)}
+            >
+              <div>{list.name}</div>
               <Trash
                 onClick={(e) => {
                   e.stopPropagation();
@@ -65,19 +71,6 @@ export default function Playlists() {
             </Playlist>
           ))}
       </Box>
-      <Outlet />
-      {activePlaylist && (
-        <div>
-          <h3>{activePlaylist.title}</h3>
-          <hr />
-          <div>
-            {videos &&
-              videos.map((video, index) => {
-                <Video video={video} key={index} />;
-              })}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
