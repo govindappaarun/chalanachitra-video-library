@@ -8,6 +8,11 @@ export const VideoCard = styled(Card)`
   width: 100%;
   height: calc(100vh - 220px);
   padding: 0;
+  max-height: none;
+  .card-media img {
+    height: calc(100vh - 240px);
+    max-height: none;
+  }
 `;
 
 export const LikeIcon = styled(GrLike)`

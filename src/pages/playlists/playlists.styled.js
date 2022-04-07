@@ -7,6 +7,9 @@ export const Playlist = styled(Box)`
   border-radius: 5px;
   padding: 1rem;
   margin: 1rem;
+  color: black;
+  background-color: white;
+  cursor: pointer;
 `;
 
 export const Trash = styled(GrTrash)`

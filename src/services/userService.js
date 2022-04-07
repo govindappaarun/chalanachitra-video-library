@@ -76,7 +76,7 @@ export default {
 
   deletePlayList: async ({ _id }) => {
     try {
-      const response = await Api.get(`/api/user/playlists/${_id}`);
+      const response = await Api.delete(`/api/user/playlists/${_id}`);
       return response.data;
     } catch (error) {
       throw error;

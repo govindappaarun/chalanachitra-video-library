@@ -5,7 +5,11 @@ import HistoryPage from "./pages/history";
 import Home from "./pages/home";
 import { useAuth } from "./contexts";
 import Video from "./pages/video";
-import Playlists, { CreatePlaylist } from "./pages/playlists";
+import Playlists, {
+  CreatePlaylist,
+  PlaylistContainer,
+  Playlist,
+} from "./pages/playlists";
 import VideoCategories from "./pages/videoCategories";
 import WatchLater from "./pages/watchlater";
 import LikedVideos from "./pages/liked";
@@ -35,13 +39,18 @@ const privateRoutes = [
       },
       {
         path: "playlists",
-        element: <Playlists />,
+        element: <PlaylistContainer />,
         children: [
+          {
+            path: "list",
+            index: true,
+            element: <Playlists />,
+          },
           {
             path: "create",
             element: <CreatePlaylist />,
           },
-          { path: ":videoId", element: <div>Videos</div> },
+          { path: ":videoId", element: <Playlist /> },
         ],
       },
     ],
