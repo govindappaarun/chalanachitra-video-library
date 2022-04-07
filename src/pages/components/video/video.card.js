@@ -9,6 +9,7 @@ import {
   PlayIcon,
   WatchLaterIcon,
   QueueIcon,
+  MoreIcon,
 } from "./video.card.styled";
 
 const Video = (
@@ -68,6 +69,7 @@ const Video = (
         <QueueIcon />
       </div>
       <div className="card-body">
+        <MoreIcon />
         <Badge color="warning">{video.categoryName}</Badge>
         <Typography className="typography" variant="h3">
           {video.title}
