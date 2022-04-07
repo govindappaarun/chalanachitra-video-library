@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Chalanachitra a Video Library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Video Library app similar to youtube, developed to master the fundamentals of React by builing a single page application.
 
-## Available Scripts
+![162156678-e2e46d29-c194-4b80-b25f-7d48aaa44cce](https://user-images.githubusercontent.com/98606563/162157801-271091b7-cf47-43c3-aef1-c7c66c6ed56f.png)
 
-In the project directory, you can run:
+## Table of contents
 
-### `npm start`
+- [About](#about)
+- [Demo](#demo)
+- [Features List](#features)
+- [Walkthrough](#walkthrough)
+- [Installation](#installation)
+- [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## About
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Online tutor App built to practice Reactjs & demonstrate some of &its core features like components, hooks, contexts and reducers.
+&nbsp;
+Other libraries used with this App are React Router v6, styled-components, mockbee-backend
 
-### `npm test`
+## Demo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [click here!](https://chalanachitra-react.netlify.app/)
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Here are some of the prominant features covered part of this application
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Landing Page
+- Home Page
+- Login Page
+- SingUp Page
+- Browse Videos by category
+- Like videos and View list of liked videos
+- View history and clear history
+- Playlist management
+- Add to watch later
+- Theme switch
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Walkthrough
 
-### `npm run eject`
+https://user-images.githubusercontent.com/98606563/162156217-808bf8ee-a1a0-4ee3-8c4d-14dc496944e7.mp4
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Installation!
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- clone the repository
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+ git clone https://github.com/govindappaarun/chalanachitra-video-library.git
 
-## Learn More
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- switch to develop branch
+  Develop branch all the code, so swith to develop
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+  git checkout develop
+```
 
-### Code Splitting
+- install dependencies
+  Install all the project dependencies using npm and with laetest versions of nodejs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+  npm install
+```
 
-### Analyzing the Bundle Size
+- run the application
+  after successfull installation of all the dependencies run the below command in termainl
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+ npm run start
+```
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT License
