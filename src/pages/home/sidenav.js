@@ -13,7 +13,6 @@ const SideNavBar = ({ categories }) => {
   const isActiveLink = ({ isActive }) => (isActive ? "active" : "");
   return (
     <Wrapper display="flex" direction="column">
-      <h3>Home</h3>
       <LinkButton className={isActiveLink} color="primary" to="liked">
         Liked ({browsingState.likes.length})
       </LinkButton>
@@ -26,7 +25,7 @@ const SideNavBar = ({ categories }) => {
       <LinkButton className={isActiveLink} color="primary" to="playlists/list">
         Playlists
       </LinkButton>
-      <h3>Categories</h3>
+      <hr />
       {categories &&
         categories.map((category) => {
           return (

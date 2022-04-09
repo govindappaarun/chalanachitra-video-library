@@ -1,7 +1,6 @@
 import React, { createRef, useState } from "react";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import styled from "styled-components";
-import Box from "../Box";
 
 const EyeInVisible = styled(AiOutlineEyeInvisible)`
   cursor: pointer;
@@ -40,7 +39,7 @@ const Wrapper = styled.div`
 
 const Input = styled.input`
   border: none;
-  outline: 1px solid ${(p) => p.theme.info.main};
+  outline: 1px solid ${(p) => p.theme.background.bg70};
   padding: 1rem;
   position: relative;
   padding-right: 2.5rem;

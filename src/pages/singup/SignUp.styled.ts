@@ -4,7 +4,6 @@ export const Wrapper = styled.div`
   margin: 0;
   padding: 0;
   height: 100vh;
-  background-color: ${(p) => p.theme.neutral.lightest};
   display: grid;
   place-items: center;
 `;
@@ -15,5 +14,7 @@ export const StyledForm = styled.form`
   min-width: 25rem;
   max-width: 30rem;
   box-shadow: ${(p) => p.theme.bs1};
-  background-color: ${(p) => p.theme.neutral.main};
+  background-color: ${(p) => p.theme.background.bg05};
+  color: ${(p) => p.theme.base.main};
+  border-radius: 5px;
 `;

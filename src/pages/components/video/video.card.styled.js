@@ -65,7 +65,7 @@ export const StyledCard = styled(Card)`
   cursor: pointer;
 
   .typography {
-    color: white;
+    color: ${(p) => p.theme.text.body};
     background-color: transparent;
     line-height: 1.5rem;
   }

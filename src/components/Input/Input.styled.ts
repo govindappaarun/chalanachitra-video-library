@@ -6,7 +6,7 @@ export const StyledInput = styled.div<InputProps>`
   flex-direction: column;
   position: relative;
   gap: 0.4rem;
-
+  color: inherit;
   .with-icon {
     position: relative;
     flex-direction: row;
@@ -33,7 +33,7 @@ export const StyledInput = styled.div<InputProps>`
 
   input {
     border: none;
-    outline: 1px solid ${(p) => p.theme.info.main};
+    outline: 1px solid ${(p) => p.theme.background.bg50};
     padding: 1rem;
     position: relative;
     font-size: 1rem;
@@ -46,17 +46,17 @@ export const StyledInput = styled.div<InputProps>`
   }
   input:hover {
     border: none;
-    outline: 2px solid ${(p) => p.theme.black};
+    outline: 2px solid ${(p) => p.theme.background.bg70};
   }
   .is-invalid {
-    color: ${(p) => p.theme.error.light};
+    color: ${(p) => p.theme.error.text};
   }
   .is-invalid input:focus-visible {
     outline-width: 2px;
   }
   .is-invalid input {
     border: none;
-    outline: 1px solid ${(p) => p.theme.error.light};
+    outline: 1px solid ${(p) => p.theme.error.main};
   }
   .is-invalid input::placeholder {
     color: ${(p) => p.theme.error.light};
@@ -67,7 +67,7 @@ export const StyledInput = styled.div<InputProps>`
     outline: 2px solid ${(p) => p.theme.success.main};
   }
   .success input:focus-visible {
-    outline: 2px solid ${(p) => p.theme.success.light};
+    outline: 2px solid ${(p) => p.theme.success.main};
   }
 
   input[type="checkbox"],

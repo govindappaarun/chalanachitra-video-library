@@ -18,7 +18,7 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const Button: FC<ButtonProps> = ({
   children,
-  color = "info",
+  color = "primary",
   className,
   ...rest
 }: ButtonProps) => {

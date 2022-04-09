@@ -7,7 +7,6 @@ const Navbar = styled(Box)<NavBarProps>`
   display: flex;
   font-size: 1.2rem;
   min-height: 4rem;
-  box-shadow: ${(props) => props.theme.boxShadow.bs1};
   padding: 0 1.8rem;
   z-index: 1000;
   color: ${({ theme }) => theme.text};
@@ -42,18 +41,18 @@ const Navbar = styled(Box)<NavBarProps>`
   }
 
   .navbar-light {
-    background-color: ${(p) => p.theme.neutral.light};
+    background-color: ${(p) => p.theme.background.bg10};
     color: var(--black);
   }
 
   .navbar-dark {
-    background-color: ${(p) => p.theme.neutral.dark};
+    background-color: ${(p) => p.theme.background.bg90};
     color: var(--white);
   }
 
   .navbar-primary {
     background-color: ${(p) => p.theme.primary.main};
-    color: ${(p) => p.theme.white};
+    color: ${(p) => p.theme.base.main};
   }
 `;
 
