@@ -37,6 +37,9 @@ export const LinkButton = styled(NavLink)`
   padding: 0.5rem 1rem;
   text-decoration: none;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   &.active {
     background-color: lightblue;
   }

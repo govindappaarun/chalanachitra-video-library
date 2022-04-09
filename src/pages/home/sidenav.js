@@ -2,28 +2,34 @@ import { Box } from "src/components";
 import { LinkButton } from "src/components/Button";
 import { useBrowse } from "src/contexts";
 import styled from "styled-components";
+import { BsHeart, BsClockHistory } from "react-icons/bs";
+import { MdOutlineWatchLater, MdOutlineFeaturedPlayList } from "react-icons/md";
 
 const Wrapper = styled(Box)`
   min-width: 15rem;
   padding: 1rem;
+  background-color: ${(p) => p.theme.base.main};
+  color: ${(p) => p.theme.base.contrast};
+  box-shadow: 1px 0px 5px ${(p) => p.theme.background.bg40};
 `;
 
 const SideNavBar = ({ categories }) => {
   const { browsingState } = useBrowse();
   const isActiveLink = ({ isActive }) => (isActive ? "active" : "");
   return (
-    <Wrapper display="flex" direction="column">
+    <Wrapper display="flex" gap="sm" direction="column">
+      <hr />
       <LinkButton className={isActiveLink} color="primary" to="liked">
-        Liked ({browsingState.likes.length})
+        <BsHeart /> Liked ({browsingState.likes.length})
       </LinkButton>
       <LinkButton className={isActiveLink} color="primary" to="watchLater">
-        WatchLater ({browsingState.watchLater.length})
+        <MdOutlineWatchLater /> WatchLater ({browsingState.watchLater.length})
       </LinkButton>
       <LinkButton className={isActiveLink} color="primary" to="history">
-        History
+        <BsClockHistory /> History
       </LinkButton>
-      <LinkButton className={isActiveLink} color="primary" to="playlists/list">
-        Playlists
+      <LinkButton className={isActiveLink} color="primary" to="playlists">
+        <MdOutlineFeaturedPlayList /> Playlists
       </LinkButton>
       <hr />
       {categories &&
@@ -38,6 +44,7 @@ const SideNavBar = ({ categories }) => {
             </LinkButton>
           );
         })}
+      <hr />
     </Wrapper>
   );
 };
