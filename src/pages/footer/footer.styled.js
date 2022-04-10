@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  background-color: ${(p) => p.theme.background.bg90};
+  background-color: ${(p) => p.theme.base.main};
+  color: ${(p) => p.theme.base.contrast};
   padding: 1rem;
-  color: ${(p) => p.theme.text.body};
   display: flex;
 `;
 

@@ -13,7 +13,11 @@ export default function UserProfile() {
     <Wrapper>
       {userProfile && (
         <ProfileCard>
-          <Avatar size="lg" text="AG" type="span" />
+          <Avatar
+            size="lg"
+            text={`${userProfile.firstName[0] + userProfile.lastName[0]}`}
+            type="span"
+          />
           <Typography variant="h2">
             {userProfile.firstName} {userProfile.lastName}
           </Typography>
@@ -21,10 +25,10 @@ export default function UserProfile() {
           <Typography
             variant="h3"
             as="a"
-            href="https://github.com/govindappaarun/"
+            href={userProfile.profile}
             color="primary"
           >
-            https://github.com/govindappaarun/
+            {userProfile.github}
           </Typography>
         </ProfileCard>
       )}
