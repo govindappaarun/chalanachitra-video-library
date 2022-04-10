@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { RiContrastFill } from "react-icons/ri";
 
 export const Wrapper = styled.div`
-  background-color: ${(p) => p.theme.primary.main};
-  color: ${(p) => p.theme.primary.contrastText};
+  background-color: ${(p) => p.theme.base.main};
+  color: ${(p) => p.theme.base.contrast};
+  margin-bottom: 5px;
 `;
 
 export const StyledNavBar = styled(NavBar)`
-  background-color: ${(p) => p.theme.neutral.dark};
-  color: ${(p) => p.theme.white};
+  box-shadow: 0px 5px 5px ${(p) => p.theme.base.shade};
   & .brand-container {
     cursor: pointer;
   }

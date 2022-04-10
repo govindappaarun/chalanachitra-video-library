@@ -26,7 +26,6 @@ const Button = styled.button<ButtonProps>`
     `}
 
   &:hover {
-    box-shadow: ${(props) => props.theme.boxShadow.bs1};
   }
 
   ${(p) => p.color && StyleType[p.color]};
@@ -47,7 +46,7 @@ const Button = styled.button<ButtonProps>`
       color: ${(props) => p.color && props.theme[p.color]["main"]};
       background-color: transparent;
       &:hover {
-        color: ${(p) => p.theme.white};
+        color: ${(p) => p.theme.base.main};
         background-color: ${(props) => p.color && props.theme[p.color]["main"]};
       }
     `}

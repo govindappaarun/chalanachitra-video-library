@@ -14,6 +14,7 @@ import VideoCategories from "./pages/videoCategories";
 import WatchLater from "./pages/watchlater";
 import LikedVideos from "./pages/liked";
 import VideoList from "./pages/home/videoList";
+import UserProfile from "./pages/userProfile";
 
 const publicRoutes = [
   { path: "/", element: <Navigate to="/home" replace /> },
@@ -28,7 +29,7 @@ const privateRoutes = [
     path: "/home",
     element: <Home />,
     children: [
-      { path: "/home", index: true, element: <VideoList /> },
+      { index: true, element: <VideoList /> },
       { path: "watchLater", element: <WatchLater /> },
       { path: "liked", element: <LikedVideos /> },
       { path: "history", element: <HistoryPage /> },
@@ -53,6 +54,7 @@ const privateRoutes = [
           { path: ":videoId", element: <Playlist /> },
         ],
       },
+      { path: "profile", element: <UserProfile /> },
     ],
   },
 ];

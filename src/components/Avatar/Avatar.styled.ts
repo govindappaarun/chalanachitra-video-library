@@ -12,9 +12,9 @@ export const StyledAvatar = styled.span<AvatarProps>`
   ${(p) =>
     p.type === "span" &&
     css`
-      text-align: center;
-      display: inline-block;
-      line-height: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 2rem;
       padding: 0;
     `}
@@ -24,7 +24,7 @@ export const StyledAvatar = styled.span<AvatarProps>`
   }
 
   &.sm {
-    font-size: 2rem;
+    font-size: 1rem;
     width: 2rem;
     height: 2rem;
     line-height: 3.2rem;

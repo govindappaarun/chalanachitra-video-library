@@ -2,9 +2,11 @@ import React from "react";
 import { Button, NavBar } from "src/components";
 import { Wrapper, ThemeIcon, StyledNavBar } from "./header.styled";
 import Box from "src/components/Box";
-import { useNavigate, useLocation } from "react-router-dom";
-import { useAuth, useCart, useTheme } from "src/contexts";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useAuth, useTheme } from "src/contexts";
 import clsx from "clsx";
+import { MdOutlineHome } from "react-icons/md";
+import { RiUserLine } from "react-icons/ri";
 
 export default function Header({ ...rest }) {
   const navigate = useNavigate();
@@ -32,6 +34,7 @@ export default function Header({ ...rest }) {
             gap="xs"
             className="brand-container"
           >
+            <MdOutlineHome style={{ fontSize: "2rem" }} />
             <h3>Chalanachitra</h3>
           </Box>
         </div>
@@ -45,6 +48,9 @@ export default function Header({ ...rest }) {
               >
                 {theme}
               </ThemeIcon>
+              <Link to="/home/profile">
+                <RiUserLine className="mx-1" style={{ fontSize: "2rem" }} />
+              </Link>
               <Button
                 onClick={doLogout}
                 color="warning"

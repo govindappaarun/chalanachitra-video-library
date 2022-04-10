@@ -3,28 +3,28 @@ import { css } from "styled-components";
 const StyleType = {
   primary: css`
     background-color: ${(p) => p.theme.primary.main};
-    color: ${(p) => p.theme.primary.contrastText};
+    color: ${(p) => p.theme.primary.contrast};
   `,
   secondary: css`
     background-color: ${(p) => p.theme.secondary.main};
-    color: ${(p) => p.theme.secondary.contrastText};
-    border: 1px solid ${(p) => p.theme.secondary.contrastText};
+    color: ${(p) => p.theme.secondary.contrast};
+    border: 1px solid ${(p) => p.theme.secondary.contrast};
   `,
   warning: css`
     background-color: ${(p) => p.theme.warning.main};
-    color: ${(p) => p.theme.white};
+    color: ${(p) => p.theme.base.main};
   `,
   error: css`
     background-color: ${(p) => p.theme.error.main};
-    color: ${(p) => p.theme.white};
+    color: ${(p) => p.theme.base.main};
   `,
   success: css`
     background-color: ${(p) => p.theme.success.main};
-    color: ${(p) => p.theme.white};
+    color: ${(p) => p.theme.base.main};
   `,
   info: css`
-    background-color: ${(p) => p.theme.info.main};
-    color: ${(p) => p.theme.white};
+    background-color: ${(p) => p.theme.background.bg70};
+    color: ${(p) => p.theme.base.main};
   `,
 };
 
