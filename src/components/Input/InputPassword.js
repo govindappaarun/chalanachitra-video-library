@@ -35,6 +35,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  color: ${(p) => p.theme.text.body};
 `;
 
 const Input = styled.input`
@@ -53,19 +54,19 @@ export default function InputPassword({ label, className, ...rest }) {
     <Wrapper className={className}>
       <label>{label ? label : ""}</label>
       <Input ref={inputRef} {...rest} type="password" />
-      {!visible && (
-        <EyeVisible
-          onClick={() => {
-            inputRef.current.type = "text";
-            setVisible(true);
-          }}
-        />
-      )}
       {visible && (
-        <EyeInVisible
+        <EyeVisible
           onClick={() => {
             inputRef.current.type = "password";
             setVisible(false);
+          }}
+        />
+      )}
+      {!visible && (
+        <EyeInVisible
+          onClick={() => {
+            inputRef.current.type = "text";
+            setVisible(true);
           }}
         />
       )}
