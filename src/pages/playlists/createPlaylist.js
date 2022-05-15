@@ -19,7 +19,7 @@ export default function CreatePlaylist() {
 
   const { values, onSubmit, onChange } = useForm(() => {
     userService.createPlayList(values).then((response) => {
-      navigate(`/home/playlists/list`);
+      navigate(`/home/playlists`);
     });
   }, initialState);
   return (

@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "src/contexts";
 import authService from "src/services/authService";
 import { InputPassword } from "src/components/Input";
+import Header from "../header";
+import Footer from "../footer";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -38,41 +40,45 @@ export default function Login() {
   }, initialState);
 
   return (
-    <Wrapper>
-      <StyledForm
-        action="#"
-        className="flex-column flex-gap"
-        onSubmit={onSubmit}
-      >
-        <Typography variant="h1" className="text-center secondary">
-          {/* Sign In To Your Account */}
-        </Typography>
-        <Input
-          placeholder="Email Address"
-          className="my-2"
-          name="email"
-          onChange={onChange}
+    <>
+      <Header />
+      <Wrapper>
+        <StyledForm
+          action="#"
+          className="flex-column flex-gap"
+          onSubmit={onSubmit}
         >
-          <label>Email</label>
-        </Input>
-        <InputPassword
-          placeholder="Enter Password"
-          className="my-2"
-          name="password"
-          onChange={onChange}
-          label="Password"
-        />
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="space-between"
-          className="my-1"
-        >
-          <Button color="primary">
-            Sign In <i className="fas fa-chevron-right"></i>
-          </Button>
-        </Box>
-      </StyledForm>
-    </Wrapper>
+          <Typography variant="h1" className="text-center secondary">
+            {/* Sign In To Your Account */}
+          </Typography>
+          <Input
+            placeholder="Email Address"
+            className="my-2"
+            name="email"
+            onChange={onChange}
+          >
+            <label>Email</label>
+          </Input>
+          <InputPassword
+            placeholder="Enter Password"
+            className="my-2"
+            name="password"
+            onChange={onChange}
+            label="Password"
+          />
+          <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+            className="my-1"
+          >
+            <Button color="primary">
+              Sign In <i className="fas fa-chevron-right"></i>
+            </Button>
+          </Box>
+        </StyledForm>
+      </Wrapper>
+      <Footer />
+    </>
   );
 }

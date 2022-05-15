@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { Box } from "src/components";
 import userService from "src/services/userService";
 import videoService from "src/services/videoService";
@@ -24,8 +25,12 @@ export default function LikedVideos() {
         <h2>Liked Videos</h2>
       </Box>
       <hr />
-      {videos && videos.length === 0 && <h4>No videos found</h4>}
-      <section>
+      <section className="videos-container">
+        {videos && videos.length === 0 && (
+          <h4 className="no-videos">
+            No likes found, you can <Link to="/home">browse</Link> some videos
+          </h4>
+        )}
         {videos.map((video) => {
           return <Video key={video._id} video={video} />;
         })}

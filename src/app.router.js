@@ -43,7 +43,6 @@ const privateRoutes = [
         element: <PlaylistContainer />,
         children: [
           {
-            path: "list",
             index: true,
             element: <Playlists />,
           },

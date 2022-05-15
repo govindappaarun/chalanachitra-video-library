@@ -10,6 +10,11 @@ export const Playlist = styled(Box)`
   color: black;
   background-color: white;
   cursor: pointer;
+  min-width: 15rem;
+  max-width: 20rem;
+  &:hover {
+    box-shadow: 2px 2px 0px #eee;
+  }
 `;
 
 export const Trash = styled(GrTrash)`

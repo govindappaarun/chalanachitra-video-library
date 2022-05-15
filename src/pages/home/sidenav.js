@@ -4,6 +4,7 @@ import { useBrowse } from "src/contexts";
 import styled from "styled-components";
 import { BsHeart, BsClockHistory } from "react-icons/bs";
 import { MdOutlineWatchLater, MdOutlineFeaturedPlayList } from "react-icons/md";
+import { FaFirefoxBrowser } from "react-icons/fa";
 
 const Wrapper = styled(Box)`
   min-width: 15rem;
@@ -19,6 +20,9 @@ const SideNavBar = ({ categories }) => {
   return (
     <Wrapper display="flex" gap="sm" direction="column">
       <hr />
+      <LinkButton className={isActiveLink} color="primary" to="/home">
+        <BsHeart /> Browse
+      </LinkButton>
       <LinkButton className={isActiveLink} color="primary" to="liked">
         <BsHeart /> Liked ({browsingState.likes.length})
       </LinkButton>

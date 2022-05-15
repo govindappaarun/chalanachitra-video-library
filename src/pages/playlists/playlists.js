@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { Box, Button } from "src/components";
 import userService from "src/services/userService";
-import Video from "../components/video";
 import { Playlist, Trash } from "./playlists.styled";
 
 export default function Playlists() {
@@ -31,12 +30,6 @@ export default function Playlists() {
     navigate(`/home/playlists/${list._id}`);
   };
 
-  const onCreatePlaylist = (list) => {
-    userService.createPlayList(list).then(() => {
-      getPlaylists();
-    });
-  };
-
   return (
     <div>
       <Box display="flex" justifyContent="space-between" className="my-1">
@@ -50,8 +43,13 @@ export default function Playlists() {
         </Button>
       </Box>
       <hr />
-      <Box display="flex">
-        {playlists && playlists.length === 0 && <h4>No playlists found</h4>}
+      <Box display="flex" className="videos-container" alignItems="start">
+        {playlists && playlists.length === 0 && (
+          <h4 className="no-videos">
+            No playlists found, start <Link to="create">creating</Link>{" "}
+            playlists
+          </h4>
+        )}
         {playlists &&
           playlists.map((list, index) => (
             <Playlist
@@ -61,7 +59,10 @@ export default function Playlists() {
               key={index}
               onClick={() => onPlaylistSelect(list)}
             >
-              <div>{list.name}</div>
+              <Box grow="1">
+                <h4>{list.name}</h4>
+                <p>{list.description}</p>
+              </Box>
               <Trash
                 onClick={(e) => {
                   e.stopPropagation();
