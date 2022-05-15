@@ -62,6 +62,7 @@ export default function Playlists() {
               <Box grow="1">
                 <h4>{list.name}</h4>
                 <p>{list.description}</p>
+                <p>{list.videos.length} videos</p>
               </Box>
               <Trash
                 onClick={(e) => {

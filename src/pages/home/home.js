@@ -15,7 +15,6 @@ export default function Home() {
   const getAllCategories = () => {
     categoryService.getAllCategories().then((response) => {
       setCategories(response.categories);
-      console.log({ response });
     });
   };
 

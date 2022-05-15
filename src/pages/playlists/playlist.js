@@ -8,25 +8,26 @@ export default function Playlist() {
   const params = useParams();
   const [videos, setVideos] = useState([]);
   const navigate = useNavigate();
-
+  const [playList, setPlayList] = useState(null);
   useEffect(() => {
     userService.getVideosInPlaylist().then((response) => {
       setVideos(response.videos);
     });
   }, [params]);
+
   return (
     <div>
-      <div>Video List</div>
+      <h2>Video List: </h2>
       <hr />
-      <div>
+      <div className="videos-container">
         {videos &&
           videos.map((video, index) => {
             <Video video={video} key={index} />;
           })}
         {videos && videos.length <= 0 && (
-          <div>
-            <div>No videos found</div>
-            <Button className="my-2" onClick={() => navigate("/home")}>
+          <div className="no-videos">
+            No videos found
+            <Button className="m-1" onClick={() => navigate("/home")}>
               Add Videos
             </Button>
           </div>

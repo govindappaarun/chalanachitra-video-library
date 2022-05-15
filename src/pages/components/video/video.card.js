@@ -19,13 +19,13 @@ const Video = (
   const navigate = useNavigate();
   const { browsingState, browsingDispatch } = useBrowse();
 
-  const onVideoClick = (video) => {
-    historyService
-      .addToHistory(video)
-      .then(() => {
-        navigate(`/home/video/${video._id}`);
-      })
-      .catch((err) => console.log({ err }));
+  const onVideoClick = async (video) => {
+    navigate(`/home/video/${video._id}`);
+    try {
+      await historyService.addToHistory(video);
+    } catch (err) {
+      console.log({ err });
+    }
   };
 
   const isInWatchList = ({ _id }) => {
@@ -34,14 +34,12 @@ const Video = (
 
   const addWatchLater = (video) => {
     userService.postUserWatchlater(video).then(() => {
-      // console.log("added to watch later");
       browsingDispatch({ type: "DO_WATCHLATER", payload: video });
     });
   };
 
   const removeWatchLater = (video) => {
     userService.deleteWatchlater(video).then(() => {
-      // console.log("removed from watch later");
       browsingDispatch({ type: "REMOVE_FROM_WATCHLATER", payload: video });
     });
   };
