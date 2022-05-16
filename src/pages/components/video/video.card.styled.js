@@ -16,9 +16,6 @@ export const EyelineIcon = styled(RiEyeLine)``;
 
 export const MoreIcon = styled(MdMoreVert)`
   font-size: 1.5rem;
-  position: absolute;
-  top: 10px;
-  right: 10px;
   cursor: pointer;
 `;
 
@@ -73,6 +70,11 @@ export const StyledCard = styled(Card)`
   .card-body {
     padding: 0.5rem 1rem;
     position: relative;
+    .popover-menu {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
   }
 
   .card-media {
@@ -80,6 +82,13 @@ export const StyledCard = styled(Card)`
     padding: 0.5rem 1rem;
     transition: all 0.3 ease-in-out;
 
+    .views {
+      position: absolute;
+      left: 10%;
+      bottom: 1.5rem;
+      background-color: black;
+      text-transform: uppercase;
+    }
     .duration {
       position: absolute;
       bottom: 0;

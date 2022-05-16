@@ -85,7 +85,7 @@ export default {
 
   getVideosInPlaylist: async ({ _id }) => {
     try {
-      const response = await Api.get(`/api/user/playlists/${_id}`);
+      const response = await Api.get(`/api/user/playlists/${_id}/videos`);
       return response.data;
     } catch (error) {
       throw error;

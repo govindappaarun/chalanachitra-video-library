@@ -7,7 +7,7 @@ import { Playlist, Trash } from "./playlists.styled";
 export default function Playlists() {
   const [activePlaylist, setActivePlaylist] = useState(null);
   const navigate = useNavigate();
-  const [playlists, setPlaylists] = useState(null);
+  const [playlists, setPlaylists] = useState([]);
 
   useEffect(() => {
     getPlaylists();
@@ -44,34 +44,33 @@ export default function Playlists() {
       </Box>
       <hr />
       <Box display="flex" className="videos-container" alignItems="start">
-        {playlists && playlists.length === 0 && (
+        {playlists?.length <= 0 && (
           <h4 className="no-videos">
             No playlists found, start <Link to="create">creating</Link>{" "}
             playlists
           </h4>
         )}
-        {playlists &&
-          playlists.map((list, index) => (
-            <Playlist
-              display="flex"
-              gap="md"
-              alignItems="center"
-              key={index}
-              onClick={() => onPlaylistSelect(list)}
-            >
-              <Box grow="1">
-                <h4>{list.name}</h4>
-                <p>{list.description}</p>
-                <p>{list.videos.length} videos</p>
-              </Box>
-              <Trash
-                onClick={(e) => {
-                  e.stopPropagation();
-                  deletePlaylist(list);
-                }}
-              />
-            </Playlist>
-          ))}
+        {playlists?.map((list, index) => (
+          <Playlist
+            display="flex"
+            gap="md"
+            alignItems="center"
+            key={index}
+            onClick={() => onPlaylistSelect(list)}
+          >
+            <Box grow="1">
+              <h4>{list.name}</h4>
+              <p>{list.description}</p>
+              <p>{list.videos.length} videos</p>
+            </Box>
+            <Trash
+              onClick={(e) => {
+                e.stopPropagation();
+                deletePlaylist(list);
+              }}
+            />
+          </Playlist>
+        ))}
       </Box>
     </div>
   );

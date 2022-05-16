@@ -1,30 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button } from "src/components";
+import { Button, Typography } from "src/components";
 import userService from "src/services/userService";
 import Video from "../components/video";
 
-export default function Playlist() {
+export default function ViewPlaylist() {
   const params = useParams();
-  const [videos, setVideos] = useState([]);
+  const [playlist, setPlaylist] = useState(null);
   const navigate = useNavigate();
-  const [playList, setPlayList] = useState(null);
+
   useEffect(() => {
-    userService.getVideosInPlaylist().then((response) => {
-      setVideos(response.videos);
-    });
+    userService
+      .getVideosInPlaylist({ _id: params.videoId })
+      .then((response) => {
+        setPlaylist(response.playlist);
+      });
   }, [params]);
 
   return (
     <div>
-      <h2>Video List: </h2>
-      <hr />
+      <Typography variant="h2">Video List: </Typography>
       <div className="videos-container">
-        {videos &&
-          videos.map((video, index) => {
-            <Video video={video} key={index} />;
-          })}
-        {videos && videos.length <= 0 && (
+        {playlist?.videos?.map((video, index) => {
+          <Video video={video} key={index} />;
+        })}
+        {playlist?.videos?.length <= 0 && (
           <div className="no-videos">
             No videos found
             <Button className="m-1" onClick={() => navigate("/home")}>

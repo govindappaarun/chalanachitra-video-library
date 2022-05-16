@@ -102,7 +102,7 @@ export function makeServer({ environment = "development" } = {}) {
       );
 
       this.get(
-        "/user/playlists/:playlistId",
+        "/user/playlists/:playlistId/videos",
         getVideosFromPlaylistHandler.bind(this)
       );
       this.post(

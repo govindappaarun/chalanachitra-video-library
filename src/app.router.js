@@ -8,7 +8,7 @@ import Video from "./pages/video";
 import Playlists, {
   CreatePlaylist,
   PlaylistContainer,
-  Playlist,
+  ViewPlaylist,
 } from "./pages/playlists";
 import VideoCategories from "./pages/videoCategories";
 import WatchLater from "./pages/watchlater";
@@ -50,7 +50,7 @@ const privateRoutes = [
             path: "create",
             element: <CreatePlaylist />,
           },
-          { path: ":videoId", element: <Playlist /> },
+          { path: ":videoId", element: <ViewPlaylist /> },
         ],
       },
       { path: "profile", element: <UserProfile /> },
