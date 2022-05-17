@@ -22,7 +22,7 @@ export default function ViewPlaylist() {
       <Typography variant="h2">Video List: </Typography>
       <div className="videos-container">
         {playlist?.videos?.map((video, index) => {
-          <Video video={video} key={index} />;
+          return <Video video={video} key={index} />;
         })}
         {playlist?.videos?.length <= 0 && (
           <div className="no-videos">

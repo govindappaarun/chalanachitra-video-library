@@ -22,7 +22,7 @@ export default {
 
   deleteWatchlater: async ({ _id }) => {
     try {
-      const response = await Api.get(`/api/user/watchlater/${_id}`);
+      const response = await Api.delete(`/api/user/watchlater/${_id}`);
       return response.data;
     } catch (error) {
       throw error;
