@@ -53,7 +53,7 @@ export default function VideoCategories() {
 
   return (
     <Wrapper>
-      <h3 className="header">{categoryName}</h3>
+      <h3 className="header my-1">{categoryName}</h3>
       <section className="videos-container">
         {categoryVideos && categoryVideos.length === 0 && (
           <h4 className="no-videos">No Videos found for this category</h4>

@@ -10,8 +10,19 @@ export const Wrapper = styled.div`
 
 export const StyledNavBar = styled(NavBar)`
   box-shadow: 0px 5px 5px ${(p) => p.theme.base.shade};
+  min-height: 6rem;
   & .brand-container {
     cursor: pointer;
+  }
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 5px;
+    min-width: 20vw;
+    max-width: 10rem;
   }
 `;
 

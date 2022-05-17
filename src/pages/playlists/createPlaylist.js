@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Input, Typography } from "src/components";
+import { Box, Button, Input, Typography } from "src/components";
 import { useForm } from "src/hooks/useForm";
 import userService from "src/services/userService";
 import styled from "styled-components";
@@ -24,7 +24,7 @@ export default function CreatePlaylist() {
   }, initialState);
   return (
     <StyledForm onSubmit={onSubmit}>
-      <h2>Create Playlist</h2>
+      <h2 className="my-1">Create Playlist</h2>
       <Input
         className="my-2"
         name="name"

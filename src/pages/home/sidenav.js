@@ -7,16 +7,19 @@ import { MdOutlineWatchLater, MdOutlineFeaturedPlayList } from "react-icons/md";
 import { FaFirefoxBrowser } from "react-icons/fa";
 
 const Wrapper = styled(Box)`
-  min-width: 15rem;
+  min-width: 20rem;
   padding: 1rem;
   background-color: ${(p) => p.theme.base.main};
   color: ${(p) => p.theme.base.contrast};
   .links {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid lightgray;
     padding: 2rem auto;
+    padding-bottom: 3rem;
     a {
-      font-size: 1.25rem;
+      padding: 1rem;
+      font-size: 1.5rem;
       margin: 0.5rem 0;
+      gap: 1rem;
     }
     a:hover {
       color: #e88c33;
@@ -31,7 +34,7 @@ const SideNavBar = ({ categories }) => {
   return (
     <Wrapper display="flex" gap="sm" direction="column">
       <Box className="links">
-        <LinkButton className={isActiveLink} color="primary" to="/home">
+        <LinkButton className={isActiveLink} color="primary" to="/home" end>
           <FaFirefoxBrowser /> Browse
         </LinkButton>
         <LinkButton className={isActiveLink} color="primary" to="liked">
