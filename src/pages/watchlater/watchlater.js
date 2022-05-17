@@ -25,13 +25,13 @@ export default function WatchLater() {
       </Box>
       <hr />
       <section className="videos-container">
-        {videos && videos.length === 0 && (
+        {videos?.length === 0 && (
           <h4 className="no-videos">
             You have not added anything to watchlater, Please{" "}
             <Link to="/home">browse</Link> some videos
           </h4>
         )}
-        {videos.map((video) => {
+        {videos?.map((video) => {
           return <Video key={video._id} video={video} />;
         })}
       </section>

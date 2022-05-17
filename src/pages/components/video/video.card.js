@@ -67,17 +67,6 @@ const Video = (
         <Badge className="views">{video.views}</Badge>
         <Badge className="duration">{video.time}</Badge>
         <PlayIcon className="play" />
-        <WatchLaterIcon
-          onClick={(e) => {
-            e.stopPropagation();
-            if (isInWatchList()) {
-              removeWatchLater();
-            } else {
-              addWatchLater();
-            }
-          }}
-        />
-        <QueueIcon />
       </div>
       <div className="card-body">
         <Popover
@@ -89,7 +78,9 @@ const Video = (
         >
           <MoreIcon />
         </Popover>
-        <Badge color="warning">{video.categoryName}</Badge>
+        <Badge className="category" color="warning">
+          {video.categoryName}
+        </Badge>
         <Typography className="typography" variant="h3">
           {video.title}
         </Typography>

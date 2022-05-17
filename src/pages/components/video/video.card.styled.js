@@ -70,10 +70,17 @@ export const StyledCard = styled(Card)`
   .card-body {
     padding: 0.5rem 1rem;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
     .popover-menu {
       position: absolute;
       top: 10px;
       right: 10px;
+    }
+    .category {
+      font-weight: 700;
     }
   }
 

@@ -50,7 +50,7 @@ export default {
 
   deleteVideoLike: async ({ _id }) => {
     try {
-      const response = await Api.get(`/api/user/likes/${_id}`);
+      const response = await Api.delete(`/api/user/likes/${_id}`);
       return response.data;
     } catch (error) {
       throw error;

@@ -10,6 +10,8 @@ import { InputPassword } from "src/components/Input";
 import Header from "../header";
 import Footer from "../footer";
 
+type LoginCredentials = { email: string; password: string };
+
 export default function Login() {
   const navigate = useNavigate();
   const { authState, authDispatch } = useAuth();
@@ -26,6 +28,14 @@ export default function Login() {
   };
 
   const { onChange, onSubmit, values } = useForm(() => {
+    doLoginApi(values as LoginCredentials);
+  }, initialState);
+
+  const doGuestLogin = () => {
+    doLoginApi({ email: "vl-guest@gmail.com", password: "guest123" });
+  };
+
+  const doLoginApi = (values: LoginCredentials) => {
     authService
       .doLogin(values)
       .then((result) => {
@@ -37,7 +47,7 @@ export default function Login() {
       .catch((err) => {
         console.log({ err });
       });
-  }, initialState);
+  };
 
   return (
     <>
@@ -66,14 +76,22 @@ export default function Login() {
             onChange={onChange}
             label="Password"
           />
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-            className="my-1"
-          >
-            <Button color="primary">
-              Sign In <i className="fas fa-chevron-right"></i>
+          <Box display="flex" gap="md" direction="column">
+            <Button
+              color="primary"
+              style={{ paddingTop: "0.5rem", paddingBottom: "0.5rem" }}
+            >
+              Sign In
+            </Button>
+
+            <Button
+              color="success"
+              outline
+              type="button"
+              onClick={doGuestLogin}
+              style={{ paddingTop: "0.5rem", paddingBottom: "0.5rem" }}
+            >
+              Guest Sign In
             </Button>
           </Box>
         </StyledForm>
