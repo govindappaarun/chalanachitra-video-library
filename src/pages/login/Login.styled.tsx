@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: calc(100vh - 160px);
   background-color: ${(p) => p.theme.base.main};
   color: ${(p) => p.theme.text.body};
   display: grid;
