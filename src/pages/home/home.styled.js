@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   min-height: 100vh;
   color: ${(p) => p.theme.text.body};
+  .container {
+    min-height: calc(100vh - 156px);
+  }
 `;
 
 export const StyledMain = styled.div`

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Box, Button } from "src/components";
 import historyService from "src/services/historyService";
 import Video from "../components/video";
@@ -44,7 +45,13 @@ export default function History() {
         </Button>
       </Box>
       <hr />
-      <StyledMain>
+      <StyledMain className="videos-container">
+        {history.length === 0 && (
+          <h4 className="no-videos">
+            No watch history found!, start <Link to="/home">browsing</Link>{" "}
+            videos
+          </h4>
+        )}
         {history.map((video, index) => {
           return (
             <div key={index}>

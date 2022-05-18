@@ -1,9 +1,10 @@
 import clsx from "clsx";
 import { useNavigate } from "react-router";
-import { Badge, Button, Typography } from "src/components";
+import { Badge, Button, Modal, Typography } from "src/components";
 import { useBrowse } from "src/contexts";
 import historyService from "src/services/historyService";
 import userService from "src/services/userService";
+import Popover from "./menu";
 import {
   StyledCard,
   PlayIcon,
@@ -13,37 +14,46 @@ import {
 } from "./video.card.styled";
 
 const Video = (
-  { video, showDelete, onDelete, horizontal, className },
+  {
+    video,
+    showDelete,
+    onDelete,
+    horizontal,
+    className,
+    addToPlaylist = () => {},
+  },
   ...rest
 ) => {
   const navigate = useNavigate();
   const { browsingState, browsingDispatch } = useBrowse();
 
-  const onVideoClick = (video) => {
-    historyService
-      .addToHistory(video)
-      .then(() => {
-        navigate(`/home/video/${video._id}`);
-      })
-      .catch((err) => console.log({ err }));
+  const onVideoClick = async (video) => {
+    navigate(`/home/video/${video._id}`);
+    try {
+      await historyService.addToHistory(video);
+    } catch (err) {
+      console.log({ err });
+    }
   };
 
-  const isInWatchList = ({ _id }) => {
-    return browsingState.watchLater.indexOf(_id) >= 0;
+  const isInWatchList = () => {
+    return browsingState.watchLater.indexOf(video._id) >= 0;
   };
 
-  const addWatchLater = (video) => {
+  const addWatchLater = () => {
     userService.postUserWatchlater(video).then(() => {
-      // console.log("added to watch later");
       browsingDispatch({ type: "DO_WATCHLATER", payload: video });
     });
   };
 
-  const removeWatchLater = (video) => {
+  const removeWatchLater = () => {
     userService.deleteWatchlater(video).then(() => {
-      // console.log("removed from watch later");
       browsingDispatch({ type: "REMOVE_FROM_WATCHLATER", payload: video });
     });
+  };
+
+  const _addToPlaylist = () => {
+    addToPlaylist(video);
   };
 
   return (
@@ -54,23 +64,23 @@ const Video = (
     >
       <div className="card-media" onClick={() => onVideoClick(video)}>
         <img src="https://picsum.photos/200/250/" alt="video" />
+        <Badge className="views">{video.views}</Badge>
         <Badge className="duration">{video.time}</Badge>
         <PlayIcon className="play" />
-        <WatchLaterIcon
-          onClick={(e) => {
-            e.stopPropagation();
-            if (isInWatchList(video)) {
-              removeWatchLater(video);
-            } else {
-              addWatchLater(video);
-            }
-          }}
-        />
-        <QueueIcon />
       </div>
       <div className="card-body">
-        <MoreIcon />
-        <Badge color="warning">{video.categoryName}</Badge>
+        <Popover
+          className="popover-menu"
+          isInWatchList={isInWatchList}
+          removeWatchLater={removeWatchLater}
+          addWatchLater={addWatchLater}
+          addToPlaylist={_addToPlaylist}
+        >
+          <MoreIcon />
+        </Popover>
+        <Badge className="category" color="warning">
+          {video.categoryName}
+        </Badge>
         <Typography className="typography" variant="h3">
           {video.title}
         </Typography>

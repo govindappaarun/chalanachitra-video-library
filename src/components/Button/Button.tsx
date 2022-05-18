@@ -42,11 +42,15 @@ export const LinkButton = styled(NavLink)`
   gap: 0.5rem;
   &.active {
     background-color: lightblue;
+    color: ${(p) => p.theme.warning.main};
+    font-weight: 500;
   }
   &:hover {
     background-color: aliceblue;
     box-shadow: none;
     transform: none;
+    color: ${(p) => p.theme.warning.main};
+    font-weight: 500;
   }
 `;
 

@@ -4,6 +4,19 @@ import { useBrowse } from "src/contexts";
 import historyService from "src/services/historyService";
 import videoService from "src/services/videoService";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  & > * {
+    flex: 1 1 0;
+  }
+  .large-video {
+    min-width: 28rem;
+  }
+`;
 
 export default function VideoList() {
   const [videos, setVideos] = useState([]);
@@ -40,8 +53,8 @@ export default function VideoList() {
   };
 
   return (
-    <div>
-      {videos.map((video) => {
+    <Wrapper>
+      {videos?.map((video) => {
         return (
           <Video
             key={video._id}
@@ -50,9 +63,10 @@ export default function VideoList() {
             removeWatchLater={removeWatchLater}
             isInWatchList={isInWatchList}
             onVideoClick={onVideoClick}
+            className="large-video"
           />
         );
       })}
-    </div>
+    </Wrapper>
   );
 }

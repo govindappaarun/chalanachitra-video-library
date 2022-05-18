@@ -1,6 +1,7 @@
 import { AuthProvider, useAuth } from "./auth.context";
 import { ThemeProvider, useTheme } from "./theme.context";
 import { BrowsingProvider, useBrowse } from "./browsing.context";
+import { AlertProvider } from "./alert.context";
 
 interface Props {
   children: React.ReactNode;
@@ -9,9 +10,11 @@ interface Props {
 const Provider = ({ children }: Props) => {
   return (
     <AuthProvider>
-      <BrowsingProvider>
-        <ThemeProvider>{children}</ThemeProvider>
-      </BrowsingProvider>
+      <AlertProvider>
+        <BrowsingProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </BrowsingProvider>
+      </AlertProvider>
     </AuthProvider>
   );
 };

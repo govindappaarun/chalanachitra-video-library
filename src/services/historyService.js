@@ -4,7 +4,6 @@ export default {
   getHistory: async () => {
     try {
       const response = await Api.get("/api/user/history");
-      console.log({ response });
       return response.data;
     } catch (error) {
       throw error;
@@ -14,7 +13,6 @@ export default {
   addToHistory: async (video) => {
     try {
       const response = await Api.post("/api/user/history", { video });
-      // console.log("added to history");
       return response.data;
     } catch (error) {
       throw error;
@@ -29,6 +27,7 @@ export default {
       throw error;
     }
   },
+
   clearHistory: async () => {
     try {
       const response = await Api.delete("/api/user/history/all");
