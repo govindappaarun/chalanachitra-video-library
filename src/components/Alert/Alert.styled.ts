@@ -17,7 +17,7 @@ export const StyledAlert = styled.div(({ color }) => [
     padding: 1rem;
     position: relative;
     font-size: 1.2rem;
-    color: white;
+    color: ${(p) => p.theme.base.main};
     display: inline-flex;
     align-items: center;
     width: 25rem;

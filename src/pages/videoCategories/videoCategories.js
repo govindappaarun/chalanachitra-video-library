@@ -34,6 +34,7 @@ export default function VideoCategories() {
       .then(() => {
         setShowPlaylist(false);
       })
+      .catch((err) => console.log(err))
       .finally(() => {
         setShowPlaylist(false);
       });

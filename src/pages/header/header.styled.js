@@ -20,9 +20,8 @@ export const StyledNavBar = styled(NavBar)`
     gap: 1rem;
     border: 1px solid;
     border-radius: 5px;
-    padding: 5px;
+    padding: 5px 10px;
     min-width: 20vw;
-    max-width: 10rem;
   }
 `;
 

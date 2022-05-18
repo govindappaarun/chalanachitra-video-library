@@ -11,7 +11,6 @@ const Wrapper = styled.div`
   .menu {
     background-color: ${(p) => p.theme.background.bg20};
     position: absolute;
-    position: absolute;
     right: 0;
     top: 50px;
     padding: 10px 1rem;

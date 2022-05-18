@@ -54,7 +54,7 @@ export default function VideoList() {
 
   return (
     <Wrapper>
-      {videos.map((video) => {
+      {videos?.map((video) => {
         return (
           <Video
             key={video._id}
