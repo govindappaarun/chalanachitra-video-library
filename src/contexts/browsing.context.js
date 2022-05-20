@@ -21,6 +21,10 @@ const BrowsingProvider = ({ children }) => {
   const [showPlaylist, setShowPlaylist] = useState(false);
   const [video, setVideo] = useState(null);
 
+  useEffect(() => {
+    getPlaylists();
+  }, []);
+
   const addToPlaylist = (video) => {
     setVideo(video);
     setShowPlaylist(true);
