@@ -94,7 +94,7 @@ export default function VideoCategories() {
               <Typography variant="p">
                 No playlist found, create a playlist
               </Typography>
-              <LinkButton outline color="warning" to="/home/playlists/create">
+              <LinkButton color="warning" to="/home/playlists/create">
                 Create Playlist
               </LinkButton>
             </>
