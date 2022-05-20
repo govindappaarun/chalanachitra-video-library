@@ -22,7 +22,7 @@ export default {
 
   deleteWatchlater: async ({ _id }) => {
     try {
-      const response = await Api.get(`/api/user/watchlater/${_id}`);
+      const response = await Api.delete(`/api/user/watchlater/${_id}`);
       return response.data;
     } catch (error) {
       throw error;
@@ -50,7 +50,7 @@ export default {
 
   deleteVideoLike: async ({ _id }) => {
     try {
-      const response = await Api.get(`/api/user/likes/${_id}`);
+      const response = await Api.delete(`/api/user/likes/${_id}`);
       return response.data;
     } catch (error) {
       throw error;
@@ -85,7 +85,7 @@ export default {
 
   getVideosInPlaylist: async ({ _id }) => {
     try {
-      const response = await Api.get(`/api/user/playlists/${_id}`);
+      const response = await Api.get(`/api/user/playlists/${_id}/videos`);
       return response.data;
     } catch (error) {
       throw error;
@@ -104,8 +104,9 @@ export default {
   deleteVideoFromPlaylist: async ({ _id, playlistId }) => {
     try {
       const response = await Api.delete(
-        `api/user/playlists/${playlistId}/${_id}`
+        `/api/user/playlists/${playlistId}/${_id}`
       );
+      return response.data;
     } catch (error) {
       throw error;
     }

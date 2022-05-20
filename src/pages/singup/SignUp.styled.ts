@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   margin: 0;
   padding: 0;
-  height: 100vh;
-  background-color: ${(p) => p.theme.neutral.lightest};
+  height: calc(100vh - 160px);
   display: grid;
   place-items: center;
+  background-color: ${(p) => p.theme.base.main};
 `;
 
 export const StyledForm = styled.form`
@@ -15,5 +15,7 @@ export const StyledForm = styled.form`
   min-width: 25rem;
   max-width: 30rem;
   box-shadow: ${(p) => p.theme.bs1};
-  background-color: ${(p) => p.theme.neutral.main};
+  background-color: ${(p) => p.theme.background.bg05};
+  color: ${(p) => p.theme.base.main};
+  border-radius: 5px;
 `;

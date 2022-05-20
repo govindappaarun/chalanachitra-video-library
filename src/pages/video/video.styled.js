@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { GrLike, GrDislike } from "react-icons/gr";
+import styled, { css } from "styled-components";
 import { Box, Card } from "src/components";
 
 export const Wrapper = styled.div``;
@@ -15,18 +14,18 @@ export const VideoCard = styled(Card)`
   }
 `;
 
-export const LikeIcon = styled(GrLike)`
-  cursor: pointer;
-  font-size: 1.5rem;
-  margin: 0.5rem;
-  color: white;
-`;
-export const DislikeIcon = styled(GrDislike)`
-  cursor: pointer;
-  font-size: 1.5rem;
-  margin: 0.5rem;
-`;
-
 export const Details = styled(Box)``;
 
 export const StyledMain = styled.main``;
+
+export const Icon = styled.span(() => [
+  css`
+    color: ${(p) => p.theme.base.contrast};
+    font-size: 1.5rem;
+    cursor: pointer;
+    &:hover,
+    .active {
+      color: ${(p) => p.theme.secondary.main};
+    }
+  `,
+]);

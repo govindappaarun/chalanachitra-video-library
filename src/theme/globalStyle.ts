@@ -17,6 +17,10 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  .react-icon {
+    cursor: pointer;
+  }
+  
   .icon {
     margin: 0.2 rem;
   }
@@ -27,6 +31,24 @@ export const GlobalStyle = createGlobalStyle`
 
   .fs-2 {
     font-size: 2rem;
+  }
+
+  .videos-container {
+    min-height: 70vh;
+    position: relative;
+    .no-videos {
+      font-size: 1.5rem;
+      font-weight: 400;
+      max-width: 30ch;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      a {
+        color: #1676F3;
+        text-decoration: none;
+      }
+    }
   }
 
 `;

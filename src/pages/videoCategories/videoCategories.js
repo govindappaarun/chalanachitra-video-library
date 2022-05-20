@@ -24,12 +24,11 @@ export default function VideoCategories() {
 
   return (
     <Wrapper>
-      <h3>{categoryName}</h3>
-      <hr />
-      {categoryVideos && categoryVideos.length === 0 && (
-        <h4>No Videos found for this category</h4>
-      )}
-      <section>
+      <h3 className="header my-1">{categoryName}</h3>
+      <section className="videos-container">
+        {categoryVideos && categoryVideos.length === 0 && (
+          <h4 className="no-videos">No Videos found for this category</h4>
+        )}
         {categoryVideos.map((video) => {
           return <Video key={video._id} video={video} />;
         })}

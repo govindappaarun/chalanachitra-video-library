@@ -16,41 +16,11 @@ export const EyelineIcon = styled(RiEyeLine)``;
 
 export const MoreIcon = styled(MdMoreVert)`
   font-size: 1.5rem;
-  position: absolute;
-  top: 10px;
-  right: 10px;
   cursor: pointer;
 `;
 
-export const QueueIcon = styled(MdOutlineQueue)`
-  color: white;
-  font-size: 1.5rem;
-  position: absolute;
-  right: 2rem;
-  top: 1rem;
-  transition: opacity 0.3 ease-in-out;
-
-  :hover {
-    opacity: 0.7;
-  }
-`;
-
-export const WatchLaterIcon = styled(MdOutlineWatchLater)`
-  color: white;
-  font-size: 1.5rem;
-  position: absolute;
-  right: 2rem;
-  top: 3rem;
-  transition: opacity 0.3 ease-in-out;
-
-  :hover {
-    opacity: 0.7;
-  }
-`;
-
-export const PlayIcon = styled(MdPlayArrow)`
-  font-size: 2.5rem;
-  color: white;
+export const PlayIcon = styled.div`
+  color: ${(p) => p.theme.warning.main};
   position: absolute;
   left: 50%;
   top: 50%;
@@ -65,7 +35,7 @@ export const StyledCard = styled(Card)`
   cursor: pointer;
 
   .typography {
-    color: white;
+    color: ${(p) => p.theme.text.body};
     background-color: transparent;
     line-height: 1.5rem;
   }
@@ -73,6 +43,18 @@ export const StyledCard = styled(Card)`
   .card-body {
     padding: 0.5rem 1rem;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+    .popover-menu {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .category {
+      font-weight: 700;
+    }
   }
 
   .card-media {
@@ -80,6 +62,13 @@ export const StyledCard = styled(Card)`
     padding: 0.5rem 1rem;
     transition: all 0.3 ease-in-out;
 
+    .views {
+      position: absolute;
+      left: 10%;
+      bottom: 1.5rem;
+      background-color: black;
+      text-transform: uppercase;
+    }
     .duration {
       position: absolute;
       bottom: 0;

@@ -15,7 +15,6 @@ export default function Home() {
   const getAllCategories = () => {
     categoryService.getAllCategories().then((response) => {
       setCategories(response.categories);
-      console.log({ response });
     });
   };
 
@@ -26,7 +25,7 @@ export default function Home() {
   return (
     <Wrapper>
       <Header />
-      <Box display="flex">
+      <Box display="flex" className="container">
         {authState.isLoggedIn && <SideNavBar categories={categories} />}
         <StyledMain>
           <Outlet />

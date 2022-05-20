@@ -3,8 +3,8 @@ import Box from "../Box";
 import { CardProps } from "./Card";
 
 export const StyledCard = styled(Box)<CardProps>`
-  background: ${(p) => p.theme.white};
-  border: 1px solid ${(p) => p.theme.neutral.light};
+  background: ${(p) => p.theme.base.main};
+  border: 1px solid ${(p) => p.theme.text.secondary};
   display: inline-flex;
   flex-direction: column;
   position: relative;
@@ -42,7 +42,7 @@ export const StyledCard = styled(Box)<CardProps>`
     }
 
     .card-body {
-      color: ${(p) => p.theme.warning};
+      color: ${(p) => p.theme.warning.main};
       font-size: 1rem;
     }
   }
@@ -60,7 +60,7 @@ export const StyledCard = styled(Box)<CardProps>`
     }
 
     .card-footer {
-      border-top: 1px solid ${(p) => p.theme.neutral.light};
+      border-top: 1px solid ${(p) => p.theme.text.secondary};
     }
   }
 `;

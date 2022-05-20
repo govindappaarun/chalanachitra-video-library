@@ -3,7 +3,7 @@ import { StyleSize } from "../utils/style";
 import { TypographyProps } from "./Typography";
 
 const StyledTypography = styled.div<TypographyProps>`
-  color: ${(p) => (p.color ? p.theme[p.color]["main"] : p.theme.neutral.main)};
+  color: ${(p) => (p.color ? p.theme[p.color]["main"] : p.theme.text.body)};
   background-color: ${(p) =>
     p.background ? p.theme[p.background]["main"] : "transparent"};
   text-align: ${(p) => p.align || "left"}};
@@ -53,6 +53,7 @@ const StyledTypography = styled.div<TypographyProps>`
     &.p {
       font-size: 20px;
       line-height: 24px;
-    }`;
+    }
+    `;
 
 export default StyledTypography;

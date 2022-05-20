@@ -1,7 +1,6 @@
 import React, { createRef, useState } from "react";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import styled from "styled-components";
-import Box from "../Box";
 
 const EyeInVisible = styled(AiOutlineEyeInvisible)`
   cursor: pointer;
@@ -36,11 +35,12 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  color: ${(p) => p.theme.text.body};
 `;
 
 const Input = styled.input`
   border: none;
-  outline: 1px solid ${(p) => p.theme.info.main};
+  outline: 1px solid ${(p) => p.theme.background.bg70};
   padding: 1rem;
   position: relative;
   padding-right: 2.5rem;
@@ -54,19 +54,19 @@ export default function InputPassword({ label, className, ...rest }) {
     <Wrapper className={className}>
       <label>{label ? label : ""}</label>
       <Input ref={inputRef} {...rest} type="password" />
-      {!visible && (
-        <EyeVisible
-          onClick={() => {
-            inputRef.current.type = "text";
-            setVisible(true);
-          }}
-        />
-      )}
       {visible && (
-        <EyeInVisible
+        <EyeVisible
           onClick={() => {
             inputRef.current.type = "password";
             setVisible(false);
+          }}
+        />
+      )}
+      {!visible && (
+        <EyeInVisible
+          onClick={() => {
+            inputRef.current.type = "text";
+            setVisible(true);
           }}
         />
       )}

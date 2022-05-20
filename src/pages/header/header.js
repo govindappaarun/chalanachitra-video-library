@@ -2,9 +2,15 @@ import React from "react";
 import { Button, NavBar } from "src/components";
 import { Wrapper, ThemeIcon, StyledNavBar } from "./header.styled";
 import Box from "src/components/Box";
-import { useNavigate, useLocation } from "react-router-dom";
-import { useAuth, useCart, useTheme } from "src/contexts";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useAuth, useTheme } from "src/contexts";
 import clsx from "clsx";
+import {
+  RiNotificationLine,
+  RiSearchLine,
+  RiUserLine,
+  RiVideoLine,
+} from "react-icons/ri";
 
 export default function Header({ ...rest }) {
   const navigate = useNavigate();
@@ -32,6 +38,7 @@ export default function Header({ ...rest }) {
             gap="xs"
             className="brand-container"
           >
+            <RiVideoLine style={{ fontSize: "2rem" }} />
             <h3>Chalanachitra</h3>
           </Box>
         </div>
@@ -39,12 +46,23 @@ export default function Header({ ...rest }) {
         <div className="nav-right flex-gap-2">
           {authState.isLoggedIn ? (
             <>
+              <div className="search-bar">
+                <RiSearchLine style={{ fontSize: "2rem" }} />
+                Enter something to search
+              </div>
+              <RiNotificationLine
+                style={{ fontSize: "2rem" }}
+                className="mx-1"
+              />
               <ThemeIcon
                 className={clsx("mx-1", { reverse: theme === "dark" })}
                 onClick={toggleTheme}
               >
                 {theme}
               </ThemeIcon>
+              <Link to="/home/profile">
+                <RiUserLine className="mx-1" style={{ fontSize: "2rem" }} />
+              </Link>
               <Button
                 onClick={doLogout}
                 color="warning"
