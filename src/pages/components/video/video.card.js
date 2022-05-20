@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { MdPlayArrow } from "react-icons/md";
 import { useNavigate } from "react-router";
 import { Badge, Button, Modal, Typography } from "src/components";
 import { useBrowse } from "src/contexts";
@@ -61,7 +62,9 @@ const Video = (props) => {
         <img src="https://picsum.photos/200/250/" alt="video" />
         <Badge className="views">{video.views}</Badge>
         <Badge className="duration">{video.time}</Badge>
-        <PlayIcon className="play" />
+        <PlayIcon>
+          <MdPlayArrow size={50} className="play" />
+        </PlayIcon>
       </div>
       <div className="card-body">
         <Popover

@@ -61,6 +61,7 @@ export default function VideoPage() {
             <Box display="flex" gap="md" alignItems="center">
               <Icon>
                 <RiHeartLine
+                  size={40}
                   className={clsx({
                     active: isLiked,
                   })}
@@ -68,7 +69,7 @@ export default function VideoPage() {
                 />
               </Icon>
               <Icon>
-                <RiHeartPulseLine onClick={disLike} />
+                <RiHeartPulseLine onClick={disLike} size={40} />
               </Icon>
             </Box>
           </Details>

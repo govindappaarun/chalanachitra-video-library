@@ -19,8 +19,7 @@ export const MoreIcon = styled(MdMoreVert)`
   cursor: pointer;
 `;
 
-export const PlayIcon = styled(MdPlayArrow)`
-  font-size: 2.5rem;
+export const PlayIcon = styled.div`
   color: ${(p) => p.theme.warning.main};
   position: absolute;
   left: 50%;
