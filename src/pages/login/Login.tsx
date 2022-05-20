@@ -36,6 +36,9 @@ export default function Login() {
   };
 
   const doLoginApi = (values: LoginCredentials) => {
+    if (!(values.email && values.password)) {
+      return;
+    }
     authService
       .doLogin(values)
       .then((result) => {

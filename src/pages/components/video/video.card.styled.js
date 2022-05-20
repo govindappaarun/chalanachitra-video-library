@@ -19,35 +19,8 @@ export const MoreIcon = styled(MdMoreVert)`
   cursor: pointer;
 `;
 
-export const QueueIcon = styled(MdOutlineQueue)`
-  color: white;
-  font-size: 1.5rem;
-  position: absolute;
-  right: 2rem;
-  top: 1rem;
-  transition: opacity 0.3 ease-in-out;
-
-  :hover {
-    opacity: 0.7;
-  }
-`;
-
-export const WatchLaterIcon = styled(MdOutlineWatchLater)`
-  color: white;
-  font-size: 1.5rem;
-  position: absolute;
-  right: 2rem;
-  top: 3rem;
-  transition: opacity 0.3 ease-in-out;
-
-  :hover {
-    opacity: 0.7;
-  }
-`;
-
-export const PlayIcon = styled(MdPlayArrow)`
-  font-size: 2.5rem;
-  color: white;
+export const PlayIcon = styled.div`
+  color: ${(p) => p.theme.warning.main};
   position: absolute;
   left: 50%;
   top: 50%;

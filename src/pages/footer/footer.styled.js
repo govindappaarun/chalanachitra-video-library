@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 `;
 
 export const StyledAnchor = styled.a`
-  color: ${(p) => p.theme.base.main};
+  color: ${(p) => p.theme.base.contrast};
   margin: 0 0.5rem;
   font-size: 1.2rem;
 `;

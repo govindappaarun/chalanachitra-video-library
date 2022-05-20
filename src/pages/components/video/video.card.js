@@ -1,31 +1,26 @@
 import clsx from "clsx";
+import { MdPlayArrow } from "react-icons/md";
 import { useNavigate } from "react-router";
 import { Badge, Button, Modal, Typography } from "src/components";
 import { useBrowse } from "src/contexts";
 import historyService from "src/services/historyService";
 import userService from "src/services/userService";
 import Popover from "./menu";
-import {
-  StyledCard,
-  PlayIcon,
-  WatchLaterIcon,
-  QueueIcon,
-  MoreIcon,
-} from "./video.card.styled";
+import { StyledCard, PlayIcon, MoreIcon } from "./video.card.styled";
 
-const Video = (
-  {
+const Video = (props) => {
+  const {
     video,
     showDelete,
+    deleteText = "Remove",
     onDelete,
     horizontal,
     className,
-    addToPlaylist = () => {},
-  },
-  ...rest
-) => {
+    ...rest
+  } = props;
   const navigate = useNavigate();
-  const { browsingState, browsingDispatch } = useBrowse();
+  const { browsingState, browsingDispatch, presentPlaylist, addToPlaylist } =
+    useBrowse();
 
   const onVideoClick = async (video) => {
     navigate(`/home/video/${video._id}`);
@@ -53,6 +48,7 @@ const Video = (
   };
 
   const _addToPlaylist = () => {
+    presentPlaylist();
     addToPlaylist(video);
   };
 
@@ -66,7 +62,9 @@ const Video = (
         <img src="https://picsum.photos/200/250/" alt="video" />
         <Badge className="views">{video.views}</Badge>
         <Badge className="duration">{video.time}</Badge>
-        <PlayIcon className="play" />
+        <PlayIcon>
+          <MdPlayArrow size={50} className="play" />
+        </PlayIcon>
       </div>
       <div className="card-body">
         <Popover
@@ -88,7 +86,7 @@ const Video = (
       </div>
       {showDelete && (
         <div className="card-actions">
-          <Button onClick={() => onDelete(video)}>clear</Button>
+          <Button onClick={() => onDelete(video)}>{deleteText}</Button>
         </div>
       )}
     </StyledCard>

@@ -17,4 +17,7 @@ export const Wrapper = styled.div`
       transform: translate(-50%, -50%);
     }
   }
+  .video {
+    min-width: 30rem;
+  }
 `;

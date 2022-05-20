@@ -104,8 +104,9 @@ export default {
   deleteVideoFromPlaylist: async ({ _id, playlistId }) => {
     try {
       const response = await Api.delete(
-        `api/user/playlists/${playlistId}/${_id}`
+        `/api/user/playlists/${playlistId}/${_id}`
       );
+      return response.data;
     } catch (error) {
       throw error;
     }
