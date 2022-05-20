@@ -21,7 +21,7 @@ export const MoreIcon = styled(MdMoreVert)`
 
 export const PlayIcon = styled(MdPlayArrow)`
   font-size: 2.5rem;
-  color: white;
+  color: ${(p) => p.theme.warning.main};
   position: absolute;
   left: 50%;
   top: 50%;
