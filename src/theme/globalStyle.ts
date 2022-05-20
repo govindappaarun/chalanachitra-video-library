@@ -17,6 +17,10 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  .react-icon {
+    cursor: pointer;
+  }
+  
   .icon {
     margin: 0.2 rem;
   }

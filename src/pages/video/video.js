@@ -1,23 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { useBrowse } from "src/contexts";
-import {
-  Details,
-  DislikeIcon,
-  LikeIcon,
-  Wrapper,
-  StyledMain,
-  VideoCard,
-} from "./video.styled";
-import Video from "../components/video";
+import { Details, Wrapper, StyledMain, VideoCard, Icon } from "./video.styled";
 import videoService from "src/services/videoService";
 import { Badge, Box, Typography } from "src/components";
 import userService from "src/services/userService";
+import clsx from "clsx";
+import { RiHeartLine, RiHeartPulseLine } from "react-icons/ri";
 
 export default function VideoPage() {
   const { id } = useParams();
   const { browsingState, browsingDispatch } = useBrowse();
   const [video, setVideo] = useState(null);
+  const isLiked = browsingState.likes.indexOf(id) >= 0;
 
   useEffect(() => {
     id &&
@@ -63,9 +58,18 @@ export default function VideoPage() {
               </Typography>
               <Badge color="warning">{video.categoryName}</Badge>
             </Box>
-            <Box>
-              <LikeIcon onClick={videoLike} />
-              <DislikeIcon onClick={disLike} />
+            <Box display="flex" gap="md" alignItems="center">
+              <Icon>
+                <RiHeartLine
+                  className={clsx({
+                    active: isLiked,
+                  })}
+                  onClick={isLiked ? null : videoLike}
+                />
+              </Icon>
+              <Icon>
+                <RiHeartPulseLine onClick={disLike} />
+              </Icon>
             </Box>
           </Details>
         </StyledMain>
