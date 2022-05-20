@@ -5,25 +5,19 @@ import { useBrowse } from "src/contexts";
 import historyService from "src/services/historyService";
 import userService from "src/services/userService";
 import Popover from "./menu";
-import {
-  StyledCard,
-  PlayIcon,
-  WatchLaterIcon,
-  QueueIcon,
-  MoreIcon,
-} from "./video.card.styled";
+import { StyledCard, PlayIcon, MoreIcon } from "./video.card.styled";
 
-const Video = (
-  {
+const Video = (props) => {
+  const {
     video,
+    addToPlaylist = () => {},
     showDelete,
+    deleteText = "Remove",
     onDelete,
     horizontal,
     className,
-    addToPlaylist = () => {},
-  },
-  ...rest
-) => {
+    ...rest
+  } = props;
   const navigate = useNavigate();
   const { browsingState, browsingDispatch } = useBrowse();
 
@@ -88,7 +82,7 @@ const Video = (
       </div>
       {showDelete && (
         <div className="card-actions">
-          <Button onClick={() => onDelete(video)}>clear</Button>
+          <Button onClick={() => onDelete(video)}>{deleteText}</Button>
         </div>
       )}
     </StyledCard>

@@ -28,7 +28,7 @@ export default function VideoCategories() {
     setShowPlaylist(true);
   };
 
-  const addVideoToList = ({ _id }) => {
+  const addSelectedVideoToList = ({ _id }) => {
     userService
       .addVideoToPlaylist({ _id, video })
       .then(() => {
@@ -83,7 +83,7 @@ export default function VideoCategories() {
                   key={index}
                   outline
                   color="success"
-                  onClick={() => addVideoToList(list)}
+                  onClick={() => addSelectedVideoToList(list)}
                 >
                   {list.name}
                 </Button>

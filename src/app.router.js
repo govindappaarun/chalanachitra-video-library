@@ -50,7 +50,7 @@ const privateRoutes = [
             path: "create",
             element: <CreatePlaylist />,
           },
-          { path: ":videoId", element: <ViewPlaylist /> },
+          { path: ":playlistId", element: <ViewPlaylist /> },
         ],
       },
       { path: "profile", element: <UserProfile /> },
