@@ -2,7 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, Typography } from "src/components";
 import userService from "src/services/userService";
+import styled from "styled-components";
 import Video from "../components/video";
+
+const Wrapper = styled.div`
+  .video {
+    min-width: 30rem;
+  }
+`;
 
 export default function ViewPlaylist() {
   const params = useParams();
@@ -34,7 +41,7 @@ export default function ViewPlaylist() {
   };
 
   return (
-    <div>
+    <Wrapper>
       <Typography variant="h2">Video List: </Typography>
       <div className="videos-container">
         {playlist?.videos?.map((video, index) => {
@@ -45,7 +52,7 @@ export default function ViewPlaylist() {
               showDelete
               deleteText="Delete"
               onDelete={deleteVideoFromPlaylist}
-              className="view-video"
+              className="video"
             />
           );
         })}
@@ -58,6 +65,6 @@ export default function ViewPlaylist() {
           </div>
         )}
       </div>
-    </div>
+    </Wrapper>
   );
 }

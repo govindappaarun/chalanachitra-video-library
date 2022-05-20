@@ -32,7 +32,7 @@ export default function WatchLater() {
           </h4>
         )}
         {videos?.map((video) => {
-          return <Video key={video._id} video={video} />;
+          return <Video key={video._id} video={video} className="video" />;
         })}
       </section>
     </Wrapper>

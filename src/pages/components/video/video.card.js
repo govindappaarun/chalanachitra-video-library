@@ -10,7 +10,6 @@ import { StyledCard, PlayIcon, MoreIcon } from "./video.card.styled";
 const Video = (props) => {
   const {
     video,
-    addToPlaylist = () => {},
     showDelete,
     deleteText = "Remove",
     onDelete,
@@ -19,7 +18,8 @@ const Video = (props) => {
     ...rest
   } = props;
   const navigate = useNavigate();
-  const { browsingState, browsingDispatch } = useBrowse();
+  const { browsingState, browsingDispatch, presentPlaylist, addToPlaylist } =
+    useBrowse();
 
   const onVideoClick = async (video) => {
     navigate(`/home/video/${video._id}`);
@@ -47,6 +47,7 @@ const Video = (props) => {
   };
 
   const _addToPlaylist = () => {
+    presentPlaylist();
     addToPlaylist(video);
   };
 

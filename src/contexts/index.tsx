@@ -10,15 +10,15 @@ interface Props {
 
 const Provider = ({ children }: Props) => {
   return (
-    <AuthProvider>
-      <AlertProvider>
-        <BrowsingProvider>
-          <IconProvider>
-            <ThemeProvider>{children}</ThemeProvider>
-          </IconProvider>
-        </BrowsingProvider>
-      </AlertProvider>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <AlertProvider>
+          <BrowsingProvider>
+            <IconProvider>{children}</IconProvider>
+          </BrowsingProvider>
+        </AlertProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 };
 
