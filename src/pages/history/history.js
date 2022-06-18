@@ -45,7 +45,7 @@ export default function History() {
         </Button>
       </Box>
       <hr />
-      <StyledMain className="videos-container">
+      <StyledMain className="video-container">
         {history.length === 0 && (
           <h4 className="no-videos">
             No watch history found!, start <Link to="/home">browsing</Link>{" "}

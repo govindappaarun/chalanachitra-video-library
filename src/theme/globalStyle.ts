@@ -49,6 +49,9 @@ export const GlobalStyle = createGlobalStyle`
         text-decoration: none;
       }
     }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 2rem;
   }
 
 `;

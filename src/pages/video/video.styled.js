@@ -8,9 +8,18 @@ export const VideoCard = styled(Card)`
   height: calc(100vh - 220px);
   padding: 0;
   max-height: none;
-  .card-media img {
-    height: calc(100vh - 240px);
-    max-height: none;
+  .card-media {
+    position: relative;
+    padding-bottom: 42.25%;
+    height: 0;
+    iframe {
+      pointer-events: all;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 

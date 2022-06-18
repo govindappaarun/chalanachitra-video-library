@@ -59,7 +59,7 @@ const Video = (props) => {
       className={clsx(className, { horizontal: horizontal })}
     >
       <div className="card-media" onClick={() => onVideoClick(video)}>
-        <img src="https://picsum.photos/200/250/" alt="video" />
+        <img src={video.thumbnail} alt="video" />
         <Badge className="views">{video.views}</Badge>
         <Badge className="duration">{video.time}</Badge>
         <PlayIcon>

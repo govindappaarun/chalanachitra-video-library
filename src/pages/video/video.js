@@ -7,6 +7,7 @@ import { Badge, Box, Typography } from "src/components";
 import userService from "src/services/userService";
 import clsx from "clsx";
 import { RiHeartLine, RiHeartPulseLine } from "react-icons/ri";
+import ReactPlayer from "react-player/youtube";
 
 export default function VideoPage() {
   const { id } = useParams();
@@ -39,7 +40,7 @@ export default function VideoPage() {
         <StyledMain>
           <VideoCard>
             <div className="card-media">
-              <img src="https://picsum.photos/300/400/" alt="video" />
+              <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} />
             </div>
           </VideoCard>
           <Details display="flex" gap="sm">
