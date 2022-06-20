@@ -46,14 +46,14 @@ export default function Header({ ...rest }) {
         <div className="nav-right flex-gap-2">
           {authState.isLoggedIn ? (
             <>
-              <div className="search-bar">
+              {/* <div className="search-bar">
                 <RiSearchLine style={{ fontSize: "2rem" }} />
                 Enter something to search
-              </div>
-              <RiNotificationLine
+              </div> */}
+              {/* <RiNotificationLine
                 style={{ fontSize: "2rem" }}
                 className="mx-1"
-              />
+              /> */}
               <ThemeIcon
                 className={clsx("mx-1", { reverse: theme === "dark" })}
                 onClick={toggleTheme}
