@@ -8,7 +8,7 @@ export const StyledCard = styled(Box)<CardProps>`
   display: inline-flex;
   flex-direction: column;
   position: relative;
-  min-width: 20rem;
+  min-width: 15rem;
   cursor: ${(p) => p.cursor || "auto"};
   margin: 0.5rem;
 

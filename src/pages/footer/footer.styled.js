@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   color: ${(p) => p.theme.base.contrast};
   padding: 1rem;
   display: flex;
+  font-size: 1.5rem;
 `;
 
 export const StyledAnchor = styled.a`

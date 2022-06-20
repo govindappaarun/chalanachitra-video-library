@@ -5,11 +5,7 @@ import userService from "src/services/userService";
 import styled from "styled-components";
 import Video from "../components/video";
 
-const Wrapper = styled.div`
-  .video {
-    min-width: 30rem;
-  }
-`;
+const Wrapper = styled.div``;
 
 export default function ViewPlaylist() {
   const params = useParams();
